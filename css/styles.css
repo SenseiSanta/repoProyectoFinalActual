@@ -1,0 +1,934 @@
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+*::selection{
+    color: #56007e;
+    background-color: rgba(169, 109, 189, 0.671);
+}
+
+
+/* Importacion de fuentes */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+
+
+/* KEYFRAMES */
+    /* Headshake */
+    @keyframes headshake{
+        0%   { transform: scale(1.1) rotate(10deg); }
+        25%  { transform: scale(1.08) rotate(-10deg); }
+        50%  { transform: scale(1.06) rotate(10deg); }
+        75%  { transform: scale(1.03) rotate(-10deg); }
+        100% { transform: scale(1) rotate(0deg); }
+}
+    
+
+/* CORRECCIONES GENERALES */
+
+
+body{
+    background-color: #09072f white;
+    display: grid;
+    grid-template-areas: "header header"
+                         "main main"
+                         "footer footer";
+}
+
+html{
+    font-size: 16px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+p{
+    color: rgb(255, 255, 255);
+}
+
+h3{
+    font-size: 1.125rem;
+}
+
+
+/* CONFIGURACION DE HEADER */ 
+
+
+    header{
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: black;
+        grid-area: header;
+    }
+
+    /* Orden de los items de navegacion */
+    header nav ul{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    /* Formato de los items de navegacion */
+    header nav ul li{
+        color: white;
+        list-style: none;
+        font-size: 1.875rem;
+        font-family: 'Fredoka One', cursive;
+        transition-duration: 0.5s;
+    }
+
+    /* hover en HEADER */
+        header nav ul li:hover{
+            transform: scale(1.05);
+            transition: 0.5s;
+        }
+        header nav ul li a:hover{
+            color: rgb(152, 151, 156);
+            text-decoration: underline;
+        }
+
+    /* Configuracion del logo principal */
+    .logoPrincipal{
+        width: 12rem;
+    }
+    
+
+    /* CONFIGURACION DE HEADER: responsive (Cuando el width baje de 800px se vera lo siguiente) */ 
+
+
+        /* Imagenes e iconos del header en responsive */
+        .responsiveHeader800{
+            display: none;
+        }
+
+        /* Tamano de los iconos del header en responsive */
+        .iconHeader{
+            width: 50px;
+        }
+
+        /* Menu de responsive */
+        .menuResponsive{
+            background-color: #51005ae3;
+            position: absolute;
+            z-index: 2;
+            left: 0;
+            top: 0;
+            padding: 10px;
+            display: none;
+            width: 30%;
+            height: 100vh;
+        }
+
+        /* Items en lista del menu responsive */
+        .menuResponsive li{
+            font-size: 2rem;
+        }
+
+        /* Boton de ingreso al menu responsive */
+        nav ul li button{
+            display: block;
+            background-color: black;
+            border: none;
+}
+
+
+/* CONFIGURACION DEL BOTON DE CONTACTO */
+
+
+    /*Caja contenedora del boton de contacto */
+        .contactButtonBox{
+        position: fixed;
+        margin-bottom: 35px;
+        margin-right: 35px;
+        bottom: 0;
+        right: 0;
+        font-size: 1.125rem;
+    }
+        /* Hover en el boton de contacto */
+        .contactButtonBox:hover{
+            animation: headshake 1s;
+        }
+
+    /* Arreglo del sobre en el boton de contacto */
+        .fixedLetter {
+            font-size: 1.5rem;
+            padding-bottom: 3px;
+            padding-left: 3px;
+        }
+
+    /* Formato del boton de contacto */
+        .contactButton{
+            display: flex;
+            width: 140px;
+            padding: 10px;
+            align-items: center;
+            justify-content: center;
+            background-color: #51005a4b;
+            border: 5px solid #3b005ae3;
+            border-radius: 30px 30px 30px 30px;
+            font-family: 'Bebas Neue', cursive;
+}
+
+
+/* CONFIGURACION DEL MAIN */
+
+
+    main{
+        grid-area: main;
+}
+
+
+/* CONFIGURACION DEL FOOTER */
+
+
+    /* Orden de elementos de footer */
+        footer {
+            background-color: #09072f;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 10px;
+            align-items: center;
+            font-family: 'Oswald', sans-serif;
+            font-weight: bold;
+            height: auto;
+            color: white;
+            grid-area: footer;
+    }
+
+        /* Orden de imagenes del footer */
+        footer ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            text-decoration: none;
+            list-style: none;
+            width: 550px;
+        }
+
+        /* Correcciones imagenes de footer */
+        .footerImgWebsites {
+            width: 35px;
+            height: 35px;
+            align-items: center;
+            display: flex;
+        }
+            .footerImgWebsites:hover {
+                animation: headshake 3s;
+                animation-iteration-count: infinite;
+            }  
+
+        /* Correcciones texto de footer */
+        .centerText{
+            text-align: center;
+}
+
+
+/* --------------- INDEX.html --------------- */
+
+
+    /* Imagen principal del index */
+    .mainImage{
+        margin-top: 4px;
+        width: 100%;
+        height: 700px;
+        background-position: center center;
+        background-size: cover;
+        background-image: url(../images/conciertoImage.jpg);
+    }
+
+    /* Division del contenido del index */
+        /* Division principal */
+        .biography{
+            display: flex;
+            justify-content: space-evenly;
+            background-image: url(../images/fondoRetroFuturista.png);
+        }
+
+        /* Cajas del contenido del index */
+        .mainDivition{
+            margin: 5px;
+            width: 50%;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Parrafos de la biografia */
+        .biographyParagraph {
+            display: inline-block;
+            width: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 1.875rem;
+            text-align: center;
+            color: rgb(240, 223, 223);
+        }
+
+        /* Imagenes de los fragmentos */
+        .circleImage {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.473);
+        }
+
+        /* Posicion de las iamgenes de los fragmentos */
+            .imageLeft {
+                position: relative;
+                bottom: 50px;
+                /*right: 50px;*/
+                width: 8.75rem;
+                height: 8.75rem;
+            }
+            .imageRight {
+                position: relative;
+                top: 50px;
+                /*left: 50px;*/
+                width: 8.75rem;
+                height: 8.75rem;
+        }
+
+        /* Cajas de los fragmentos */
+        .snippetBox {
+            width: 750px;
+            margin: 80px 0px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+}
+
+
+/* --------------- CONTACT US.html --------------- */
+
+
+/* Formulario de contacto */
+    form{
+        background-color: #4C0070;
+        margin: auto;
+        padding: 30px;
+        font-family: 'IBM Plex Sans KR', sans-serif;
+        font-size: 1.18em;
+    }
+
+        /* Espacio de formulario en contacto */
+        .contactForm fieldset{
+            width: 80vw;
+            border: none;
+            color: blanchedalmond;
+            margin: auto;
+            padding: 10px;
+        }
+
+        /* Correccion del tamaño de los select e input */
+            .labelInfo select{
+                width: 180px;
+            }
+            .labelInfo input{
+                width: 180px;
+            }
+
+        /* Cajas contenedoras de los items del formulario */
+        .contactForm fieldset div{
+            padding: 8px 0px;
+        }
+
+        /* Espacio y formato del textarea, escritura dentro del comentario */
+        textarea{
+            width: 100%;
+            margin: 3px;
+            padding: 5px;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+        /* Configuracion de los label dentro del formulario */
+        .contactForm label{
+            display: inline-block;
+            text-align: right;
+            width: 200px;
+            padding-right: 10px;
+        }
+
+        /* Configuracion del espacio de botones dresolutivos del formulario (send y reset) */
+        .labelButtons{
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        /* Configuracion de los botones resolutivos del formulario (send y reset) */
+        .labelButtons input{
+            width: 70px;
+    }
+
+    /* Configuracion del espacio de la suscripcion en contacto */
+    .subscriptionBanner{
+        background-color: #79018C;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+
+/* --------------- GALLERY.html --------------- */
+
+
+/* Imagenes de la galeria */
+    /* Caja contenedora y orden de las imagenes */
+    .galleryOrder{
+        width: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        background: rgb(162,123,185);
+        background: radial-gradient(circle, rgba(162,123,185,1) 20%, rgba(62,6,95,1) 53%);
+    }
+
+    /* Configuracion individual de las imagenes */
+    .galleryImage{
+        width: 300px;
+        height: 300px;
+        background-color: rgba(40, 27, 116, 0.74);
+        margin: 25px;
+    }
+
+    /* Configuracion del filtro de la galeria de imagenes */
+    .filterGallery{
+        background: rgb(0,0,0);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(62,6,95,1) 100%);
+        display: flex;
+        justify-content: space-evenly;
+        list-style: none;
+        height: 100px;
+        align-items: center;
+    }
+
+    /* Configuracion de los elementos del filtro de la galeria */
+    .filterGallery li{
+        color: white;
+        font-size: 1.5em;
+        align-items: center;
+        display: flex;
+    }
+
+    /* Configuracion de los input (circulos seleccionadores) en el filtro de la galeria */
+    .filterGallery input{
+        width: 1.875rem;
+        height: 1.875rem;
+        margin: 3px 8px;
+    }
+
+    /* Configuracion de los botones en la galeria responsive */
+    .responsiveGallery{
+        display: none;
+        background: rgb(0,0,0);
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(62,6,95,1) 100%);
+        justify-content: space-evenly;
+        list-style: none;
+        height: 70px;
+        align-items: center;
+}
+
+
+/* --------------- TOUR.html --------------- */
+
+
+/* Division principal del contenido de Tour */
+    .sectionTour{
+        display: flex;
+        width: 100%;
+        height: auto;
+        background: rgb(127,57,167);
+        background: radial-gradient(circle, rgba(127,57,167,1) 0%, /*rgba(14,2,22,1) 85%*/rgb(0, 0, 0) 60%);
+    }
+
+        /* Cajas individuales del contenido principal de Tour */
+        .mainTour{
+            margin: 20px;
+            height: auto;
+            background-color: rgba(83, 83, 83, 0.062);
+        }
+
+        /* Division de la caja de filtro de busqueda (izquierda) */
+        .sectionTour1{
+            width: 50%;
+            display: grid;
+            grid-template-areas: "datesTour"
+                                 "filterTour"
+                                 "resultsTour";
+        }
+
+            /* Especificaciones para orden grid */
+                .datesTour{
+                    grid-area: datesTour;
+                    height: 200px;
+                }
+                .filterTour{
+                    grid-area: filterTour;
+                    height: 200px;
+                }
+                .resultsTour{
+                    grid-area: resultsTour;
+                    height: 200px;
+                }
+        
+        /* Division de la caja de filtro de imagenes aleatorias (derecha) */ 
+        .sectionTour2{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            /* Configuracion de la caja contenedora de imagenes */
+            .sectionTour2 img{
+                width: 80%;
+}
+
+
+/* --------------- SHOP.html --------------- */
+
+
+    /* Division principal del shop */
+    .orderShop{
+        display: grid;
+        grid-template-areas: "banner banner banner banner"
+                             "filter shop shop shop";
+        grid-template-columns: 1fr 4fr;
+    }
+
+        /* Seccion de banner de oferta */
+       .offerBanner{
+            grid-area: banner;
+            display: flex;
+            background-color: blue;
+            align-items: center;
+       }
+        /* Boton de banner de oferta */
+        .offerBannerButton{
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+    
+        /* Barra de filtro del shop */
+        .filterShop{
+            width: 100%;
+            grid-area: filter;
+            background-color: wheat;
+        }
+
+        /* Seccion de imagenes del shop */
+        .shop{
+            grid-area: shop;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        /* Imagenes del shop */
+        .imgShop{
+            width: 200px;
+            height: 260px;
+            background-color: chocolate;
+            margin: 10px;
+}
+        
+
+/* --------------- MUSIC.html --------------- */
+
+
+    
+    /* Cajas de albums musicales */
+    .containerAlbum{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    
+    /* Cajas de albums musicales */
+    .album{
+        margin: 40px;
+        width: 200px;
+        height: 250px;
+        background-color: turquoise;
+    }
+
+    /* Contenedor de video */
+    .lastVideo{
+        width: auto;
+        height: 600px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Configuracion ultimo video */
+    .lastVideo iframe{
+        width: 80%;
+        height: auto;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*MediaQueris*/
+/* ======================= CORRECCION DEL HEADER BAJO 800px ======================= */
+
+    @media only screen and (max-width: 800px){
+        /* Aparecer el menu nuevo del header */
+        .responsiveHeader800{
+            display: initial;
+        }
+        
+        /* Desaparecer el menu del header */
+        .responsiveHeader{
+            display: none;
+        }
+
+        /* Arreglo del tamano del logo principal */
+        .logoPrincipal{
+            width: 12rem;
+        }
+
+        /* Desaparecer el boton de contacto */
+        .contactButtonBox{
+            display: none;
+        }
+
+        /* Orden de los links de navegacion */
+        header nav ul{
+            justify-content: space-evenly;
+        }
+
+        /* Orden de los links de navegacion en responsive */
+        header nav li:hover .menuResponsive{
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* hover en HEADER (no responsive) */
+            header nav ul li:hover{
+                transform: none;
+            }
+            header nav ul li a:hover{
+                color: rgb(255, 255, 255);
+                text-decoration: none
+            }
+}
+
+
+/*
+/* ========================= ARREGLO MONITORES ========================= */
+
+    @media only screen and (max-width: 1400px){
+        
+        html{
+            font-size: 14px;
+        }
+
+        h3{
+            font-size: 1rem;
+        }
+
+
+        /* ---------------INDEX--------------- */
+
+
+            /* Posicion de las imágenes de los fragmentos */
+                .imageLeft {
+                    position: static;
+                    grid-area: imageLeft;
+                    align-self: center;
+                }
+                .imageRight {
+                    position: static;
+                    grid-area: imageRight;
+                }
+
+            /* Descripcion de los iframe para grid */
+            .snippetBox iframe{
+                grid-area: iframe;
+                text-align: center;
+            }
+
+            /* Configuracion responsive de las imágenes de la biografía */
+            .imageCorrection{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 10px;
+            }
+
+            /* Cajas de los fragmentos */
+            .snippetBox {
+                justify-content: center;
+                width: auto;
+                height: 280px;
+                margin: 40px 0px;
+                display: grid;
+                grid-template-areas: "iframe iframe"
+                                     "imageLeft imageRight";
+            }
+}
+
+
+/* ========================= TABLETS ========================= */
+
+
+    @media only screen and (max-width: 720px){
+        
+        html{
+            font-size: 12px;
+        }
+
+        
+        /* CONFIGURACION DEL FOOTER (720px)  */
+
+            footer{
+                height: 100px;
+                font-size: 2em;
+                display: grid;
+                grid-template-areas: "footerSocial footerSocial"
+                                        "footer1h3 footer2h3";
+            }
+
+            /* Configuracion de las redes sociales */
+                footer ul{
+                    width: 90%;
+                }
+                .socialMedia{
+                    grid-area: footerSocial;
+                    display: flex;
+                    justify-content: center;
+            }
+            
+            /* Configuracion para grid en footer */
+                .h3Mixed1{
+                    display: grid;
+                    grid-area: footer1h3;
+                    justify-self: left;
+                }
+                .h3Mixed2{
+                    display: grid;
+                    grid-area: footer2h3;
+                    justify-self: right;
+            }
+
+
+        /* --------------- INDEX.html (720px)  --------------- */
+
+
+            /* Division del contenido del index */
+                /* Division principal */
+                    .biography{
+                        display: grid;
+                        background-size: contain;
+                }
+                
+                /* Cajas del contenido del index */
+                    .mainDivition{
+                        width: auto;
+                        padding: 20px 40px;
+                    }
+
+
+         /* --------------- CONTACT.html (720px) --------------- */
+
+
+         /* Configuracion de los label dentro del formulario */
+        .contactForm label{
+            width: 150px;
+        }
+
+
+         /* --------------- GALLERY.html (720px)  --------------- */
+
+
+            /* Configuracion individual de las imagenes */
+            .galleryImage{
+                width: 250px;
+                height: 250px;
+        }
+
+
+        /* --------------- MUSIC.html (720px) --------------- */
+
+
+            /* Contenedor de video */
+            .lastVideo{
+                height: 400px;
+            }
+
+
+        /* --------------- TOUR.html (720px) --------------- */
+            
+
+        /* Division de la caja de filtro de busqueda (izquierda) */
+            .sectionTour1{
+                width: 100%;
+            }
+
+            /* Division de la caja de filtro de imagenes aleatorias (derecha) */
+            .sectionTour2{
+                display: none;
+    }
+}
+
+/* ========================= CELULARES ========================= */
+
+
+    @media only screen and (max-width: 480px){
+
+        html{
+            font-size: 10px;
+        }
+
+
+        /* CONFIGURACION DEL HEADER (480px) */
+
+
+            header{
+                padding: 10px;
+            }
+
+            /* Logo MUSE */
+            .logoPrincipal{
+                width: 12rem;
+            }
+            
+            /* Iconos de navegacion en responsive */
+            .iconHeader{
+                width: 2.8rem;
+        }
+
+
+        /* --------------- INDEX.html (480px)  --------------- */
+
+
+            /* Cajas de los fragmentos */
+            .snippetBox {
+                margin: 0;
+            }
+
+            /* Tamano de los iframes de spotify */
+            iframe{
+                width: 250px;
+                height: 80px;
+            }
+
+            /* Cajas del contenido del index */
+            .mainDivition{
+                padding: 15px 15px;
+            }
+
+            /* Parrafos de la biografia */
+            .biographyParagraph {
+                font-size: 1.7rem;
+        }
+        
+
+        /* --------------- GALLERY.html (480px)  --------------- */
+        
+
+            /* Configuracion individual de las imagenes */
+            .galleryImage{
+                margin: 25px;
+            }   
+            
+            /* Aparicion del filtro responsive */
+            .responsiveGallery{
+                display: flex;
+            }
+
+            /* Desaparicion del filtro no responsive */
+            .filterGallery{
+                display: none;
+            }
+
+            /* Configuracion de los input (circulos seleccionadores) en el filtro de la galeria */
+            .filterGallery input{
+                width: 1.25rem;
+                height: 1.25rem;
+                margin: 3px 5px;
+        }
+
+        
+        /* --------------- SHOP.html (480px)  --------------- */
+
+
+            /* Division principal del shop */
+            .orderShop{
+                display: grid;
+                grid-template-columns: none;
+                grid-template-areas: "banner"
+                                     "filter"
+                                     "shop";
+            }  
+            
+            /* Espacio del filtro del shop */
+            .filterShop{
+                height: 100px;
+            }
+
+            /* Boton de oferta del shop */
+            .offerBannerButton{
+                font-size: 2em;
+        }
+
+
+        /* --------------- MUSIC.html (480px)  --------------- */
+
+
+            /* Configuracion de la caja del video en pantalla */
+            .lastVideo{
+                padding: 0;
+                height: 300px;
+            }
+            
+            /* Configuracion del video en pantalla */
+            .lastVideo iframe{
+                width: 100%;
+                height: 300px;
+            }
+
+            /* Configuracion de las cartas de albums */
+            .album{
+                width: 120px;
+                height: 180px;
+                margin: 20px;
+            }
+        
+
+        /* --------------- CONTACT.html (480px)  --------------- */
+
+
+            /* Reorganizacion de los label */
+            .labelInfo{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Configuracion de los textos label */
+            .contactForm label{
+                text-align: center;
+                font-size: 1.3em;
+                padding-bottom: 10px;
+            }
+}
