@@ -18,19 +18,30 @@
 /* KEYFRAMES */
     /* Headshake */
     @keyframes headshake{
-        0%   { transform: scale(1.1) rotate(10deg); }
-        25%  { transform: scale(1.08) rotate(-10deg); }
-        50%  { transform: scale(1.06) rotate(10deg); }
-        75%  { transform: scale(1.03) rotate(-10deg); }
-        100% { transform: scale(1) rotate(0deg); }
+        0%   { transform: /*scale(1.)*/ rotate(10deg); }
+        25%  { transform: /*scale(1.08)*/ rotate(-10deg); }
+        50%  { transform: /*scale(1.06)*/ rotate(10deg); }
+        75%  { transform: /*scale(1.03)*/ rotate(-10deg); }
+        100% { transform: /*scale(1)*/ rotate(0deg); }
 }
-    
+
+    /* Broken Lamp */
+    @keyframes brokenLamp{
+        0%   { opacity: 0%; text-shadow: 0px 0px 50px rgb(241, 241, 173);}
+        5%  { opacity: 80%; }
+        10%   { opacity: 0%; }
+        15%  { opacity: 80%; }
+        20%   { opacity: 0%; }
+        80%   { opacity: 100%; }
+        100%  { opacity: 40%; }
+}
+
 
 /* CORRECCIONES GENERALES */
 
 
 body{
-    background-color: #09072f white;
+    background-color: #1a151d white;
     display: grid;
     grid-template-areas: "header header"
                          "main main"
@@ -46,12 +57,17 @@ a{
     color: white;
 }
 
+a:hover{
+    color: white;
+}
+
 p{
     color: rgb(255, 255, 255);
 }
 
-h3{
-    font-size: 1.125rem;
+ul{
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -63,7 +79,9 @@ h3{
         position: sticky;
         top: 0;
         z-index: 1;
-        background-color: black;
+        background-color: #1a151d;
+        padding-bottom: 10px;
+        border-bottom: 1px solid black;
         grid-area: header;
     }
 
@@ -88,17 +106,19 @@ h3{
         header nav ul li:hover{
             transform: scale(1.05);
             transition: 0.5s;
+
         }
         header nav ul li a:hover{
-            color: rgb(152, 151, 156);
-            text-decoration: underline;
+            color: rgba(99, 82, 165, 0.726);
+
         }
 
     /* Configuracion del logo principal */
     .logoPrincipal{
         width: 12rem;
+        margin-top: 5px;
     }
-    
+
 
     /* CONFIGURACION DE HEADER: responsive (Cuando el width baje de 800px se vera lo siguiente) */ 
 
@@ -189,45 +209,18 @@ h3{
 
 
     /* Orden de elementos de footer */
-        footer {
-            background-color: #09072f;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 10px;
-            align-items: center;
-            font-family: 'Oswald', sans-serif;
-            font-weight: bold;
-            height: auto;
-            color: white;
-            grid-area: footer;
+    footer {
+        font-weight: bold;
+        grid-area: footer;
+        background-color: #1a151d;
+        border-top: 1px solid black;
     }
 
-        /* Orden de imagenes del footer */
-        footer ul {
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            text-decoration: none;
-            list-style: none;
-            width: 550px;
-        }
-
-        /* Correcciones imagenes de footer */
-        .footerImgWebsites {
-            width: 35px;
-            height: 35px;
-            align-items: center;
-            display: flex;
-        }
-            .footerImgWebsites:hover {
-                animation: headshake 3s;
-                animation-iteration-count: infinite;
-            }  
-
-        /* Correcciones texto de footer */
-        .centerText{
-            text-align: center;
-}
+    /* Hover en imagenes del footer */
+    .footerImgWebsites:hover {
+        border: 1px solid #4C0070;
+        background-color: #d785e4;
+}  
 
 
 /* --------------- INDEX.html --------------- */
@@ -235,12 +228,29 @@ h3{
 
     /* Imagen principal del index */
     .mainImage{
-        margin-top: 4px;
         width: 100%;
-        height: 700px;
+        height: 110vh;
         background-position: center center;
         background-size: cover;
         background-image: url(../images/conciertoImage.jpg);
+        opacity: 90%;
+    }
+
+    /* Texto principal del index */
+    .mainText{
+        color: rgb(216, 216, 216);
+        width: 100%;
+        height: 100%;
+        opacity: 70%;
+        position: relative;
+        bottom: 150px;
+        text-shadow: 0px 0px 50px rgb(241, 241, 173);
+    }
+    .mainText>h1{
+        font-size: 48px;
+        font-family: 'Karla', sans-serif;
+        text-transform: uppercase;
+        animation: brokenLamp 6s;
     }
 
     /* Division del contenido del index */
@@ -248,7 +258,9 @@ h3{
         .biography{
             display: flex;
             justify-content: space-evenly;
-            background-image: url(../images/fondoRetroFuturista.png);
+            background-image: url(../images/fondoRetroFuturista2.jpg);
+            background-position: center center;
+            background-repeat: repeat;
         }
 
         /* Cajas del contenido del index */
@@ -263,13 +275,23 @@ h3{
 
         /* Parrafos de la biografia */
         .biographyParagraph {
-            display: inline-block;
             width: auto;
-            margin-top: 10px;
-            margin-bottom: 10px;
+            display: inline-block;
+            margin: 10px 0px;
+            padding: 0px 10px;
             font-size: 1.875rem;
+            opacity: 80%;
             text-align: center;
             color: rgb(240, 223, 223);
+            font-family: 'Cabin', sans-serif;
+        }
+
+        .biographyBox{
+            height: 160px;
+            border: 3px solid #5E4C5A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Imagenes de los fragmentos */
@@ -277,6 +299,7 @@ h3{
             width: 140px;
             height: 140px;
             border-radius: 50%;
+            opacity: 80%;
             box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.473);
         }
 
@@ -311,7 +334,7 @@ h3{
 
 /* Formulario de contacto */
     form{
-        background-color: #4C0070;
+        background-color: #1a151d;
         margin: auto;
         padding: 30px;
         font-family: 'IBM Plex Sans KR', sans-serif;
@@ -369,12 +392,19 @@ h3{
 
     /* Configuracion del espacio de la suscripcion en contacto */
     .subscriptionBanner{
-        background-color: #79018C;
-        height: 40px;
+        background-color: #690179;
+        height: 55px;
         display: flex;
         align-items: center;
         justify-content: center;
-}
+    }
+    .subscriptionBanner>h2{
+        margin: 0;
+    }
+    .subscriptionBanner>a{
+        width: 100%;
+        text-align: center;
+    }
 
 
 /* --------------- GALLERY.html --------------- */
@@ -402,7 +432,7 @@ h3{
     /* Configuracion del filtro de la galeria de imagenes */
     .filterGallery{
         background: rgb(0,0,0);
-        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(62,6,95,1) 100%);
+        background: linear-gradient(180deg, #1A1A1A 0%, rgba(62,6,95,1) 100%);
         display: flex;
         justify-content: space-evenly;
         list-style: none;
@@ -441,6 +471,7 @@ h3{
 
 
 /* Division principal del contenido de Tour */
+    
     .sectionTour{
         display: flex;
         width: 100%;
@@ -490,6 +521,12 @@ h3{
             /* Configuracion de la caja contenedora de imagenes */
             .sectionTour2 img{
                 width: 80%;
+}
+
+.infoTour{
+    width: 400px;
+    height: 200px;
+    background-color: gray;
 }
 
 
@@ -697,42 +734,22 @@ h3{
             font-size: 12px;
         }
 
-        
-        /* CONFIGURACION DEL FOOTER (720px)  */
-
-            footer{
-                height: 100px;
-                font-size: 2em;
-                display: grid;
-                grid-template-areas: "footerSocial footerSocial"
-                                        "footer1h3 footer2h3";
-            }
-
-            /* Configuracion de las redes sociales */
-                footer ul{
-                    width: 90%;
-                }
-                .socialMedia{
-                    grid-area: footerSocial;
-                    display: flex;
-                    justify-content: center;
-            }
-            
-            /* Configuracion para grid en footer */
-                .h3Mixed1{
-                    display: grid;
-                    grid-area: footer1h3;
-                    justify-self: left;
-                }
-                .h3Mixed2{
-                    display: grid;
-                    grid-area: footer2h3;
-                    justify-self: right;
-            }
-
+        /* Iconos de navegacion en responsive */
+        .iconHeader{
+            width: 2.7rem;
+        }
 
         /* --------------- INDEX.html (720px)  --------------- */
+            
+            .mainImage{
+                height: 750px;
+            }
 
+            /* Texto principal del index */
+            .mainText{
+                font-size: 2.425rem;
+                bottom: 100px;
+            }
 
             /* Division del contenido del index */
                 /* Division principal */
@@ -799,7 +816,6 @@ h3{
             font-size: 10px;
         }
 
-
         /* CONFIGURACION DEL HEADER (480px) */
 
 
@@ -820,6 +836,10 @@ h3{
 
         /* --------------- INDEX.html (480px)  --------------- */
 
+            /* Texto principal del index */
+            .mainText{
+                bottom: 50px;
+            }
 
             /* Cajas de los fragmentos */
             .snippetBox {

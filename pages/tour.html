@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- Etiquetas meta -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Titulo Pagina Web -->
     <title> MUSE ║ Tour </title>
     <link rel="icon" href="../images/logoTransparente.ico">
+    
+    <!-- Link de bootstrap -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    
+    <!-- Link de la hoja de estilos principal -->
     <link rel="stylesheet" href="../css/styles.css">
+    
+    <!-- Link a fuentes y tipografias -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Script -->
+    <script src="https://kit.fontawesome.com/786fefc0b9.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -60,32 +74,156 @@
     </header>
 
     <main>
-        <!-- Division principal del contenido principal de Tour -->
-        <div class="sectionTour">
+        <div class="container-fluid bg-secondary">
 
-            <section class="mainTour sectionTour1">
+            <!-- Fila principal -->
+            <div class="row d-flex justify-content-around vh-100">
 
-                <div class="datesTour">
-                    <span style="color: aliceblue; font-size: 2em; display: inline-block; width: 100%; text-align: center;"> Aqui se ubicara el filtro por pasados y futuros </span> 
+                <!-- Primera seccion (Informacion) -->
+                <div class="col-11 col-lg-7 mx-1 d-flex flex-column justify-content-around">
+
+                    <!-- Menu de filtracion de busqueda de tours-->
+                    <div class="row h-25 bg-light shadow m-3 d-flex align-items-center">
+
+                        <!-- Menu superior -->
+                        <div class="row h-50 d-flex align-items-center">
+                            <ul class="d-flex justify-content-around list-unstyled align-items-center">
+                                <li class="noDiv480">
+                                    <button type="button" class="btn btn-primary"> Past Dates </button>
+                                </li>
+                                <li class="noDiv480">
+                                    <button type="button" class="btn btn-primary"> Upcoming </button>
+                                </li>
+                                <li class="tourFilterResponsive">
+                                    <select>
+                                        <option value="disabledCountry" disabled selected> Choose Country </option>
+                                        <option value="argentina"> Argentina </option>
+                                        <option value="brazil"> Brazil</option>   
+                                        <option value="jamaica"> Jamaica </option>   
+                                        <option value="kuwait"> Kuwait </option>   
+                                        <option value="france"> France </option>      
+                                    </select>
+                                </li>
+                                <li class="tourFilterResponsive">
+                                    <select>
+                                        <option value="disabledYear" disabled selected> Choose Year </option>
+                                        <option value="2000"> 2000 </option>
+                                        <option value="2010"> 2010 </option>   
+                                        <option value="2015"> 2015 </option>   
+                                        <option value="2020"> 2020 </option>   
+                                        <option value="2022"> 2022 </option>      
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Menu inferior -->
+                        <div class="row h-50 font-size-12 d-flex align-items-center">
+                            <ul class="d-flex justify-content-around list-unstyled align-items-center">
+                                <li class="noDiv480">
+
+                                    <!-- Dropdown Ciudad -->
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        City
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li> <button class="dropdown-item" type="button"> Bruselas </button> </li>
+                                        <li> <button class="dropdown-item" type="button"> Auckland </button> </li>
+                                        <li> <button class="dropdown-item" type="button"> Huston </button> </li>
+                                        <li> <button class="dropdown-item" type="button"> Boston </button> </li>
+                                        <li> <button class="dropdown-item" type="button"> Sao Paulo </button> </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="noDiv480">
+
+                                    <!-- Dropdown Pais -->
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Country
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li> <button class="dropdown-item" type="button"> Argentina </button> </li>
+                                        <li> <button class="dropdown-item" type="button"> Ireland </button> </li>
+                                        <li> <button class="dropdown-item" type="button"> United States of America </button> </li>
+                                        <li> <button class="dropdown-item" type="button"> New Zealand </button> </li>
+                                        <li> <button class="dropdown-item" type="button"> Swedish </button> </li>
+                                        <li> <button class="dropdown-item" type="button"> Brazil </button> </li>
+                                        </ul>
+                                    </div>
+                                </li>                           
+                                <li class="noDiv480">
+
+                                    <!-- Dropdown Anio -->
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Year
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li> <button class="dropdown-item" type="button"> 2000 </button> </li>
+                                        <li> <button class="dropdown-item" type="button"> 2010 </button> </li>
+                                        <li> <button class="dropdown-item" type="button"> 2020 </button> </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                    
+                                <!-- Filtro Responsive (inferior) -->
+                                <li>
+                                    <input type="text" placeholder="place">
+                                    <input type="text" placeholder="date">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Informacion de tours -->
+                    <div class="row h-50 justify-content-around">
+                        <div class="col-12 d-flex justify-content-evenly flex-wrap">
+                            <div class="infoTour d-flex text-center flex-column justify-content-center">
+                                <h4> 20 de Enero </h4>
+                                <h5> Sao Paulo </h5>
+                            </div>
+                            <div class="infoTour d-flex text-center flex-column justify-content-center">
+                                <h4> 20 de Enero </h4>
+                                <h5> Sao Paulo </h5>
+                            </div>
+                            <div class="infoTour d-flex text-center flex-column justify-content-center">
+                                <h4> 20 de Enero </h4>
+                                <h5> Sao Paulo </h5>
+                            </div>
+                            <div class="infoTour d-flex text-center flex-column justify-content-center">
+                                <h4> 20 de Enero </h4>
+                                <h5> Sao Paulo </h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="filterTour">
-                    <span style="color: aliceblue; font-size: 2em; display: inline-block; width: 100%; text-align: center;"> Aqui se ubicara el filtro principal (ciudad, pais, anio) </span> 
+                <!-- Segunda seccion (Imagenes) -->
+                <div class="col-12 col-lg-4 mx-1 tourMainHeight d-flex align-items-center justify-content-center noImageTour">
+                    
+                    <!-- Carousel de imagenes -->
+                    <div id="carouselExampleSlidesOnly" class="carousel slide fitImage d-none d-lg-block" data-bs-ride="carousel">
+                        <div class="carousel-inner rounded-2 d-flex align-items-center">
+                            <div class="carousel-item active">
+                                <img src="../img/indexSnippets/albumPhotos/index2ndLaw.png" class="d-block w-100 fitImage scaleElement" alt="prueba">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/indexSnippets/albumPhotos/indexDrones.png" class="d-block w-100 fitImage scaleElement" alt="prueba">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/indexSnippets/albumMember/indexCris1.png" class="d-block w-100 fitImage scaleElement" alt="prueba">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://www.muse.mu/sites/g/files/g2000007516/f/201902/_67A8950.png" class="d-block w-100 fitImage scaleElement" alt="prueba">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="resultsTour">
-                    <span style="color: aliceblue; font-size: 2em; display: inline-block; width: 100%; text-align: center;"> Aqui se ubicaran los resultados de busqueda </span> 
-                </div>
-
-            </section>
-
-
-            <section class="mainTour sectionTour2">
-                <img src="../images/randomTour/auxiliar.jpg" alt="">
-            </section>
-
+            </div>
         </div>
-        
+
         <!-- Texto Flotante de comunicacion -->
         <div class="contactButtonBox">
             <a class="contactButton" href="contact.html"> Contact Us <span class="fixedLetter"> ✉️ </span> </a>
@@ -96,41 +234,58 @@
 
     
     <!-- Pie de Pagina -->
-    <footer>
+    <footer class="text-center text-white">
         
         <!-- Linea de tiempo de banda -->
-        <div class= "h3Mixed1">
-            <h3 class="centerText"> 2022 Warner Music UK limited. </h3>
+        <div class="container p-4">
+            <div class="row d-flex justify-content-center">
+                <div class="col-4">
+                    <section class="mb-4 d-flex justify-content-around">
+                        <!-- Facebook -->
+                        <a class="btn btn-outline-light btn-floating m-1 footerImgWebsites" target="blank" href="https://www.facebook.com/muse" role="button"
+                        ><i class="fab fa-facebook-f"></i
+                        ></a>
+                
+                        <!-- Twitter -->
+                        <a class="btn btn-outline-light btn-floating m-1 footerImgWebsites" target="blank" href="https://twitter.com/muse" role="button"
+                        ><i class="fab fa-twitter"></i
+                        ></a>
+                
+                        <!-- Instagram -->
+                        <a class="btn btn-outline-light btn-floating m-1 footerImgWebsites" target="blank" href="https://www.instagram.com/muse/?hl=es" role="button"
+                        ><i class="fab fa-instagram"></i
+                        ></a>
+                
+                        <!-- Youtube -->
+                        <a class="btn btn-outline-light btn-floating m-1 footerImgWebsites" target="blank" href="https://www.youtube.com/channel/UCGGhM6XCSJFQ6DTRffnKRIw" role="button"
+                        ><i class="fab fa-youtube"></i
+                        ></a>
+                
+                        <!-- TikTok -->
+                        <a class="btn btn-outline-light btn-floating m-1 footerImgWebsites" target="blank" href="https://www.tiktok.com/@muse?lang=es" role="button"
+                        ><i class="fab fa-tiktok"></i
+                        ></a>
+                    </section>
+                </div>
+            </div>
+
+        <!-- Section: Text -->
+        <section class="mb-4">
+            <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+            repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+            eum harum corrupti dicta, aliquam sequi voluptate quas.
+            </p>
+        </section>
+    
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright: Santiago Olivera
         </div>
 
-        <!-- Iconos y links a redes sociales -->
-        <div class="socialMedia">
-            <ul>
-                <li>
-                    <a href="https://www.youtube.com/channel/UCGGhM6XCSJFQ6DTRffnKRIw" target="blank"> <img class="footerImgWebsites" src="../images/socialMedia/logoYoutube.png" alt="Logo de YouTube"> </a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/muse" target="blank"> <img class="footerImgWebsites" src="../images/socialMedia/logoFacebook.png" alt="Logo de Facebook"> </a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/muse" target="blank"> <img class="footerImgWebsites" src="../images/socialMedia/logoTwitter.png" alt="Logo de Twitter"> </a>
-                </li>
-                <li>
-                    <a href="https://www.tiktok.com/@muse?" target="blank"> <img class="footerImgWebsites" src="../images/socialMedia/logoTiktok.png" alt="Logo de TikTok"> </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/muse/?hl=es" target="blank"> <img class="footerImgWebsites" src="../images/socialMedia/logoInstagram.png" alt="Logo de Instagram"> </a>
-                </li>
-                <li>
-                    <a href="https://open.spotify.com/artist/12Chz98pHFMPJEknJQMWvI" target="blank"> <img class="footerImgWebsites" src="../images/socialMedia/logoSpotify.png" alt="Logo de Spotify"> </a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Reserva de derechos -->
-        <div class= "h3Mixed2">
-            <h3 class="centerText"> All rights reserved ® </h3>
-        </div>  
     </footer>
+
+    <!-- Link javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
