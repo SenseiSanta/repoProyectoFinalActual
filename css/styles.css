@@ -13,6 +13,7 @@
 
 /* Importacion de fuentes */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 
 /* KEYFRAMES */
@@ -32,9 +33,18 @@
         10%   { opacity: 0%; }
         15%  { opacity: 80%; }
         20%   { opacity: 0%; }
-        80%   { opacity: 100%; }
+        80%   { opacity: 100%; text-shadow: 0px 0px 50px rgb(241, 241, 173);}
         100%  { opacity: 40%; }
 }
+
+    @keyframes goInput{
+        0% { opacity: 70%;}
+        20% { opacity: 100%;}
+        40% { opacity: 70%;}
+        60% { opacity: 100%;}
+        80% { opacity: 70%;}
+        100% { opacity: 100%;}
+    }
 
 
 /* CORRECCIONES GENERALES */
@@ -126,6 +136,7 @@ ul{
         /* Imagenes e iconos del header en responsive */
         .responsiveHeader800{
             display: none;
+            background-color: rgb(26, 21, 29);
         }
 
         /* Tamano de los iconos del header en responsive */
@@ -135,7 +146,7 @@ ul{
 
         /* Menu de responsive */
         .menuResponsive{
-            background-color: #51005ae3;
+            background-color: rgba(26, 21, 29, 0.842);
             position: absolute;
             z-index: 2;
             left: 0;
@@ -286,12 +297,14 @@ ul{
             font-family: 'Cabin', sans-serif;
         }
 
+        /* Contenedores de los parrafos de la biografia */
         .biographyBox{
-            height: 160px;
+            height: fit-content;
             border: 3px solid #5E4C5A;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 10px 0;
         }
 
         /* Imagenes de los fragmentos */
@@ -334,7 +347,7 @@ ul{
 
 /* Formulario de contacto */
     form{
-        background-color: #1a151d;
+        background-color: #282433;
         margin: auto;
         padding: 30px;
         font-family: 'IBM Plex Sans KR', sans-serif;
@@ -350,15 +363,25 @@ ul{
             padding: 10px;
         }
 
-        /* Correccion del tamaño de los select e input */
+        .labelInfo{
+            padding: 8px;
+        }
+
+        /* Correccion del tamaño y formato de los select e input */
             .labelInfo select{
-                width: 180px;
+                width: 200px;
+                border-radius: 10px 10px 10px 10px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                padding: 3px;
             }
             .labelInfo input{
-                width: 180px;
+                width: 200px;
+                border-radius: 10px 10px 10px 10px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                padding: 3px;
             }
 
-        /* Cajas contenedoras de los items del formulario */
+        /* Cajas contenedoras de los items del formulario
         .contactForm fieldset div{
             padding: 8px 0px;
         }
@@ -375,7 +398,7 @@ ul{
         .contactForm label{
             display: inline-block;
             text-align: right;
-            width: 200px;
+            width: 150px;
             padding-right: 10px;
         }
 
@@ -387,7 +410,38 @@ ul{
 
         /* Configuracion de los botones resolutivos del formulario (send y reset) */
         .labelButtons input{
-            width: 70px;
+            width: 140px;
+            height: 40px;
+            background-color: #996d90d2;
+            font-size: 1.5rem;
+            border-radius: 10px 10px 10px 10px;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 600;
+            border: #603566 3px solid;
+        }
+        .labelButtons input:hover{
+            background-color: #d785e4;
+            animation: goInput;
+            animation-duration: 1s;
+        }
+
+    /* Posicion del label de commentario */
+    .commentaryCorrection{
+        display: flex;
+        justify-content: start;
+    }
+    
+    /* Espacio fisico del carousel */
+    .miniPngCarousel{
+        max-width: 300px;
+        min-width: 100px;
+        height: 300px;
+    }
+
+    /*Contenedor del carousel */
+    .carouselContact{
+        display: flex;
+        justify-content: center;
     }
 
     /* Configuracion del espacio de la suscripcion en contacto */
@@ -397,6 +451,7 @@ ul{
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 0px 10px;
     }
     .subscriptionBanner>h2{
         margin: 0;
@@ -667,6 +722,10 @@ ul{
                 color: rgb(255, 255, 255);
                 text-decoration: none
             }
+        
+        .d-none-800{
+            display: none;
+        }
 }
 
 
@@ -771,6 +830,14 @@ ul{
          /* Configuracion de los label dentro del formulario */
         .contactForm label{
             width: 150px;
+        }
+        
+        /* Correccion del tamaño y formato de los select e input */
+        .labelInfo select{
+            width: 170px;
+        }
+        .labelInfo input{
+            width: 170px;
         }
 
 
@@ -943,6 +1010,7 @@ ul{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                padding: 8px;
             }
 
             /* Configuracion de los textos label */
@@ -950,5 +1018,16 @@ ul{
                 text-align: center;
                 font-size: 1.3em;
                 padding-bottom: 10px;
+                padding-right: 0;
+            }
+
+            .labelButtons input{
+                width: 100px;
+                font-size: 1.3rem;
+            }
+
+            .commentaryCorrection{
+                display: flex;
+                justify-content: center;
             }
 }
