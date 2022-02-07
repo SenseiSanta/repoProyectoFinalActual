@@ -82,53 +82,88 @@
         </div>
 
             <!-- Formulario de contacto -->
-            <form class="contactForm">
-                <fieldset>
-                    <!-- Motivo de contacto -->
-                    <div class="labelInfo">
-                        <label for="doubt"> Reason for contact </label>
-                        <select name="doubt"> 
-                            <option value="General"> General </option>
-                            <option value="Concerts / Shows"> Concerts / Shows </option>
-                            <option value="Shop / Merchandising"> Shop / Merchandising </option>
-                            <option value="Suggestion"> Suggestion </option>
-                            <option value="Website"> Website </option>   
-                        </select>
-                    </div>
-                    <!-- Nombre del contactante -->
-                    <div class="labelInfo">
-                        <label for="contactName"> Name </label>
-                        <input type="text" placeholder="Example: Josh Nicolson" name="contactName">
-                    </div>
-                    <!-- Email del contactante -->
-                    <div class="labelInfo">
-                        <label for="email"> Email Adress </label>
-                        <input type="email" placeholder="Example: josh77@examplemail.com" name="email">
-                    </div>
-                    <!-- Pais del contactante -->
-                    <div class="labelInfo">
-                        <label for="contactName"> Country </label>
-                        <select>
-                            <option value="ar"> Argentina </option>
-                            <option value="mx"> Mexico </option>
-                            <option value="br"> Brazil </option>
-                            <option value="uk"> United Kingdom </option>
-                            <option value="us"> United States </option>
-                        </select>
-                    </div>
-                    <!-- Espacio de escritura principal -->
-                    <div>
-                        <label for="commentary"> Commentary: </label>
-                    </div>                     
-                    <textarea name="commentary" cols="80" rows="10" placeholder="Write here..."></textarea>
+        <form class="contactForm">
+            <fieldset>
+                
+                <!-- Contenedor de info + carousel -->
+                <div class="container">
+                    <!-- Informacion de formulario -->
+                    <div class="row">
+                        <div class="col-md-8 d-flex flex-column justify-content-around">
+                            <!-- Motivo de contacto -->
+                            <div class="labelInfo">
+                                <label for="doubt"> Reason for contact </label>
+                                <select name="doubt"> 
+                                    <option value="General"> General </option>
+                                    <option value="Concerts / Shows"> Concerts / Shows </option>
+                                    <option value="Shop / Merchandising"> Shop / Merchandising </option>
+                                    <option value="Suggestion"> Suggestion </option>
+                                    <option value="Website"> Website </option>   
+                                </select>
+                            </div>
+                            
+                            <!-- Nombre del contactante -->
+                            <div class="labelInfo">
+                                <label for="contactName"> Name </label>
+                                <input type="text" placeholder="Example: Josh Nicolson" name="contactName">
+                            </div>
+                            
+                            <!-- Email del contactante -->
+                            <div class="labelInfo">
+                                <label for="contactEmail"> Email Adress </label>
+                                <input type="email" placeholder="Example: josh77@examplemail.com" name="email">
+                            </div>
+                            
+                            <!-- Pais del contactante -->
+                            <div class="labelInfo">
+                                <label for="contactCountry"> Country </label>
+                                <select>
+                                    <option value="ar"> Argentina </option>
+                                    <option value="mx"> Mexico </option>
+                                    <option value="br"> Brazil </option>
+                                    <option value="uk"> United Kingdom </option>
+                                    <option value="us"> United States </option>
+                                </select>
+                            </div>
+                        </div>
+                        
 
-                    <!-- Botones de resolucion del formulario -->
-                    <div class="labelButtons">
-                        <input type="submit" value="Send">
-                        <input type="reset" value="Reset Form">
+                    
+                    <!-- Carousel de imagenes aleatorias png -->
+                        <div class="col-md-4 d-none-800">
+                            <div id="carouselExampleSlidesOnly" class="carousel slide miniPngCarousel d-flex align-items-center justify-content-center" data-bs-ride="carousel">
+                                <div class="carousel-inner rounded-2">
+                                    <div class="carousel-item active">
+                                        <img src="https://d3iln1l77n73l7.cloudfront.net/couch_images/attachments/000/052/279/original/muse320x320.jpg?2014" class="d-block w-100 fitImage scaleElement" alt="prueba">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://garajedelrock.com/wp-content/uploads/2020/08/muse-1024x537.jpg" class="d-block w-100 fitImage scaleElement" alt="prueba">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://garajedelrock.com/wp-content/uploads/2020/08/muse-1024x537.jpg" class="d-block w-100 fitImage scaleElement" alt="prueba">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://www.muse.mu/sites/g/files/g2000007516/f/201902/_67A8950.png" class="d-block w-100 fitImage scaleElement" alt="prueba">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </fieldset>
-            </form>
+                </div>
+                
+                <!-- Espacio de escritura principal -->
+                <div class="commentaryCorrection">
+                    <label for="commentary"> Commentary: </label>
+                </div>                     
+                <textarea name="commentary" cols="80" rows="10" placeholder="Write here..."></textarea>
+
+                <!-- Botones de resolucion del formulario -->
+                <div class="labelButtons">
+                    <input type="submit" value="Send">
+                    <input type="reset" value="Reset Form">
+                </div>
+            </fieldset>
+        </form>
 
     </main>
 
