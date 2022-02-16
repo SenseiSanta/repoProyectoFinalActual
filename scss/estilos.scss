@@ -412,7 +412,10 @@ ul{
             display: flex;
             background-color: blue;
             align-items: center;
-       }
+            h2:hover{
+                color: rgb(1, 1, 95);
+            }
+        }
         /* Boton de banner de oferta */
         .offerBannerButton{
             width: 100%;

@@ -485,6 +485,8 @@ textarea {
   display: flex;
   background-color: blue;
   align-items: center; }
+  .offerBanner h2:hover {
+    color: #01015f; }
 
 /* Boton de banner de oferta */
 .offerBannerButton {
