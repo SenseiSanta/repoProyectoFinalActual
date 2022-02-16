@@ -1,0 +1,15 @@
+/* CONFIGURACION DEL FOOTER */
+
+    /* Orden de elementos de footer */
+    footer {
+        font-weight: bold;
+        grid-area: footer;
+        background-color: #1a151d;
+        border-top: 1px solid black;
+    }
+
+    /* Hover en imagenes del footer */
+    .footerImgWebsites:hover {
+        border: 1px solid #4C0070;
+        background-color: #d785e4;
+}  

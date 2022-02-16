@@ -6,6 +6,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- SEO -->
+        <meta name="description" content="Historial y proximas presentaciones de la banda MUSE alrededor del mundo">
+        <meta name="keyword" content="muse, music, rock, alt-rock, tour, progressive, pop, Concerts">
     
     <!-- Titulo Pagina Web -->
     <title> MUSE ║ Tour </title>
@@ -77,26 +80,31 @@
         <div class="container-fluid bg-secondary">
 
             <!-- Fila principal -->
-            <div class="row d-flex justify-content-around vh-100">
+            <div class="row d-flex justify-content-around h-auto">
 
                 <!-- Primera seccion (Informacion) -->
                 <div class="col-11 col-lg-7 mx-1 d-flex flex-column justify-content-around">
 
                     <!-- Menu de filtracion de busqueda de tours-->
-                    <div class="row h-25 bg-light shadow m-3 d-flex align-items-center">
+                    <div class="row h-25 bg-dark shadow m-3 d-flex align-items-center">
 
                         <!-- Menu superior -->
                         <div class="row h-50 d-flex align-items-center">
                             <ul class="d-flex justify-content-around list-unstyled align-items-center">
-                                <li class="noDiv480">
+                                
+                                <!-- "Past Dates" -->
+                                <li class="d-none-480">
                                     <button type="button" class="btn btn-primary"> Past Dates </button>
                                 </li>
-                                <li class="noDiv480">
+                                <!-- "Upcoming" -->
+                                <li class="d-none-480">
                                     <button type="button" class="btn btn-primary"> Upcoming </button>
                                 </li>
+
+                                <!-- Menu superior (responsive) -->
                                 <li class="tourFilterResponsive">
                                     <select>
-                                        <option value="disabledCountry" disabled selected> Choose Country </option>
+                                        <option value="disabledCountry" disabled selected> Country </option>
                                         <option value="argentina"> Argentina </option>
                                         <option value="brazil"> Brazil</option>   
                                         <option value="jamaica"> Jamaica </option>   
@@ -106,7 +114,7 @@
                                 </li>
                                 <li class="tourFilterResponsive">
                                     <select>
-                                        <option value="disabledYear" disabled selected> Choose Year </option>
+                                        <option value="disabledYear" disabled selected> Year </option>
                                         <option value="2000"> 2000 </option>
                                         <option value="2010"> 2010 </option>   
                                         <option value="2015"> 2015 </option>   
@@ -120,7 +128,7 @@
                         <!-- Menu inferior -->
                         <div class="row h-50 font-size-12 d-flex align-items-center">
                             <ul class="d-flex justify-content-around list-unstyled align-items-center">
-                                <li class="noDiv480">
+                                <li class="d-none-480">
 
                                     <!-- Dropdown Ciudad -->
                                     <div class="dropdown">
@@ -136,7 +144,7 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="noDiv480">
+                                <li class="d-none-480">
 
                                     <!-- Dropdown Pais -->
                                     <div class="dropdown">
@@ -153,7 +161,7 @@
                                         </ul>
                                     </div>
                                 </li>                           
-                                <li class="noDiv480">
+                                <li class="d-none-480">
 
                                     <!-- Dropdown Anio -->
                                     <div class="dropdown">
@@ -169,9 +177,10 @@
                                 </li>
                                     
                                 <!-- Filtro Responsive (inferior) -->
-                                <li>
-                                    <input type="text" placeholder="place">
-                                    <input type="text" placeholder="date">
+                                <li class="tourFilterResponsive">
+                                    <button class="btn btn-primary" type="button">
+                                        Search
+                                    </button>
                                 </li>
                             </ul>
                         </div>

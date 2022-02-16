@@ -1,0 +1,112 @@
+/* CONFIGURACION DE HEADER */ 
+header{
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: $color-header-footer;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+    grid-area: header;
+    /* Orden de los items de navegacion */
+    nav ul{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        /* Formato de los items de navegacion */
+        li{
+            color: white;
+            list-style: none;
+            font-size: 1.875rem;
+            font-family: 'Fredoka One', cursive;
+            transition-duration: 0.5s;
+            :hover{
+                transform: scale(1.05);
+                transition: 0.5s;
+            }
+            a:hover{
+                color: rgba(99, 82, 165, 0.726);
+            }           
+            /* Boton de ingreso al menu responsive */
+            button{
+                display: block;
+                background-color: black;
+                border: none;
+            }
+        }
+    }
+}
+/* Configuracion del logo principal */
+.logoPrincipal{
+    width: 12rem;
+    margin-top: 5px;
+}
+
+/* CONFIGURACION DE HEADER: responsive (Cuando el width baje de 800px se vera lo siguiente) */ 
+
+    /* Imagenes e iconos del header en responsive */
+    .responsiveHeader800{
+        display: none;
+        background-color: rgb(26, 21, 29);
+    }
+
+    /* Tamano de los iconos del header en responsive */
+    .iconHeader{
+        width: 50px;
+    }
+
+    /* Menu de responsive */
+    .menuResponsive{
+        background-color: rgba(26, 21, 29, 0.842);
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        display: none;
+        justify-content: center;
+        width: 30%;
+        height: 100vh;
+        /* Items en lista del menu responsive */
+        li{
+            padding: 20px 0px;
+            font-size: 2rem;
+        }
+}
+
+/*MediaQueris*/
+/* ======================= CORRECCION DEL HEADER BAJO 800px ======================= */
+@media only screen and (max-width: 800px){
+    /* Aparecer el menu nuevo del header */
+    .responsiveHeader800{
+        display: initial;
+    }
+    
+    /* Desaparecer el menu del header */
+    .responsiveHeader{
+        display: none;
+    }
+
+    /* Orden de los links de navegacion */
+    header nav {
+        ul{
+            justify-content: space-evenly;
+        }
+    }
+
+    /* Orden de los links de navegacion en responsive */
+    header nav li:hover .menuResponsive{
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* hover en HEADER (no responsive) */
+    header nav ul li:hover{
+        transform: none;
+        a:hover{
+            color: rgb(255, 255, 255);
+            text-decoration: none
+        }
+    }
+}
+    
