@@ -3,6 +3,7 @@
 /* Orden de elementos de footer */
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 footer {
   font-weight: bold;
   grid-area: footer;
@@ -409,21 +410,27 @@ textarea {
   width: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  background: #a27bb9;
-  background: radial-gradient(circle, #a27bb9 20%, #3e065f 53%); }
+  justify-content: space-around; }
 
 /* Configuracion individual de las imagenes */
 .galleryImage {
   width: 300px;
   height: 300px;
   background-color: rgba(40, 27, 116, 0.74);
-  margin: 25px; }
+  margin: 25px;
+  transition: 1s; }
+  .galleryImage :hover {
+    transform: scale(1.02);
+    transition: 1s; }
+
+/* Contener imagenes */
+.fitImageContent {
+  width: 300px;
+  height: 300px; }
 
 /* Configuracion del filtro de la galeria de imagenes */
 .filterGallery {
-  background: black;
-  background: linear-gradient(180deg, #1A1A1A 0%, #3e065f 100%);
+  background-color: #240238;
   display: flex;
   justify-content: space-evenly;
   list-style: none;
@@ -452,11 +459,38 @@ textarea {
   align-items: center; }
 
 /* --------------- TOUR.html --------------- */
+/* Caja contenedora del main */
+.mainTour {
+  background-color: rgba(102, 102, 102, 0.452); }
+
+/* Configuraciones generales del filtro */
+.filterTour button {
+  font-size: 1.3rem;
+  font-family: 'Rubik', sans-serif;
+  background-color: #441f75;
+  color: white;
+  border: none; }
+  .filterTour button :hover {
+    color: white; }
+
+.dropdown-menu {
+  padding: 0; }
+
 /* Cajas de Info en Tour */
 .infoTour {
   width: 400px;
-  height: 200px;
-  background-color: gray; }
+  height: 180px;
+  background-color: #330b4b;
+  color: white;
+  border: 3px solid black;
+  border-radius: 20px 20px 20px 20px;
+  margin: 5px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 2rem; }
+
+/* Altura y configuracion */
+.heightTour {
+  height: 700px; }
 
 /* Menu filtro del responsive */
 .tourFilterResponsive {
@@ -469,8 +503,12 @@ textarea {
     .tourFilterResponsive input :disabled {
       background-color: white; }
   .tourFilterResponsive select {
-    width: 120px;
-    font-size: 20px; }
+    width: 100px;
+    font-size: 1.5rem;
+    border-radius: 3px 3px 3px 3px;
+    background-color: #0275d8;
+    color: white;
+    padding: 10px 2px; }
 
 /* --------------- SHOP.html --------------- */
 /* Division principal del shop */
@@ -638,7 +676,12 @@ textarea {
   /* Contenedor de video */
   .lastVideo {
     height: 400px; }
-  /* --------------- TOUR.html (720px) --------------- */ }
+  /* --------------- TOUR.html (720px) --------------- */
+  /* Cajas de Info en Tour */
+  .infoTour {
+    width: 250px;
+    height: 150px;
+    font-size: 2.5rem; } }
 
 /* ========================= CELULARES ========================= */
 @media only screen and (max-width: 480px) {

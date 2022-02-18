@@ -21,6 +21,7 @@
 /* Importacion de fuentes */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 /* CORRECCIONES GENERALES */
 
@@ -317,8 +318,6 @@ ul{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        background: rgb(162,123,185);
-        background: radial-gradient(circle, rgba(162,123,185,1) 20%, rgba(62,6,95,1) 53%);
     }
 
     /* Configuracion individual de las imagenes */
@@ -327,12 +326,21 @@ ul{
         height: 300px;
         background-color: rgba(40, 27, 116, 0.74);
         margin: 25px;
+        transition: 1s;
+        :hover{
+            transform: scale(1.02);
+            transition: 1s;
+        }
+    }
+
+    /* Contener imagenes */
+    .fitImageContent{
+        @include carta(300px, 300px)
     }
 
     /* Configuracion del filtro de la galeria de imagenes */
     .filterGallery{
-        background: rgb(0,0,0);
-        background: linear-gradient(180deg, #1A1A1A 0%, rgba(62,6,95,1) 100%);
+        background-color: rgb(36, 2, 56);
         display: flex;
         justify-content: space-evenly;
         list-style: none;
@@ -367,15 +375,46 @@ ul{
 
 /* --------------- TOUR.html --------------- */
 
+/* Caja contenedora del main */ 
+.mainTour{
+    background-color: rgba(102, 102, 102, 0.452);
+}
+
+/* Configuraciones generales del filtro */
+.filterTour{
+    button {
+        font-size: 1.3rem;
+        font-family: 'Rubik', sans-serif;
+        background-color: rgb(68, 31, 117);
+        color: white;
+        border: none;
+        :hover{
+            color: white;
+        }
+    }
+}
+
+.dropdown-menu{
+    padding: 0;
+}
 
 /* Cajas de Info en Tour */
 .infoTour{
     width: 400px;
-    height: 200px;
-    background-color: gray;
+    height: 180px;
+    background-color: rgb(51, 11, 75);
+    color: white;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 20px 20px 20px 20px;
+    margin: 5px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
 }
 
-
+/* Altura y configuracion */
+.heightTour{
+    height: 700px;
+}
 
 /* Menu filtro del responsive */
 .tourFilterResponsive{
@@ -390,8 +429,12 @@ ul{
         }
     }
     select {
-        width: 120px;
-        font-size: 20px;
+        width: 100px;
+        font-size: 1.5rem;
+        border-radius: 3px 3px 3px 3px;
+        background-color:#0275d8;
+        color: white;
+        padding: 10px 2px;
     }
 }
 
@@ -646,8 +689,12 @@ ul{
 
 
         /* --------------- TOUR.html (720px) --------------- */
-            
-
+            /* Cajas de Info en Tour */
+            .infoTour{
+                width: 250px;
+                height: 150px;
+                font-size: 2.5rem;
+            }
 }
 
 /* ========================= CELULARES ========================= */
