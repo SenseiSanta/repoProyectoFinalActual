@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
 footer {
   font-weight: bold;
   grid-area: footer;
@@ -59,6 +60,30 @@ footer {
     opacity: 100%; }
   80% {
     opacity: 70%; }
+  100% {
+    opacity: 100%; } }
+
+@keyframes discover {
+  0% {
+    opacity: 0%; }
+  10% {
+    opacity: 10%; }
+  20% {
+    opacity: 20%; }
+  30% {
+    opacity: 30%; }
+  40% {
+    opacity: 40%; }
+  50% {
+    opacity: 50%; }
+  60% {
+    opacity: 60%; }
+  70% {
+    opacity: 70%; }
+  80% {
+    opacity: 80%; }
+  90% {
+    opacity: 90%; }
   100% {
     opacity: 100%; } }
 
@@ -198,6 +223,8 @@ ul {
   font-size: 1.125rem; }
   .contactButtonBox :hover {
     animation: headshake 1s; }
+  .contactButtonBox a:hover {
+    color: white; }
 
 /* Arreglo del sobre en el boton de contacto */
 .fixedLetter {
@@ -433,6 +460,7 @@ textarea {
   background-color: #240238;
   display: flex;
   justify-content: space-evenly;
+  border-bottom: 1px solid black;
   list-style: none;
   height: 100px;
   align-items: center;
@@ -447,6 +475,8 @@ textarea {
     width: 1.875rem;
     height: 1.875rem;
     margin: 3px 8px; }
+    .filterGallery input ::selection {
+      color: #330b4b; }
 
 /* Configuracion de los botones en la galeria responsive */
 .responsiveGallery {
@@ -461,18 +491,21 @@ textarea {
 /* --------------- TOUR.html --------------- */
 /* Caja contenedora del main */
 .mainTour {
-  background-color: rgba(102, 102, 102, 0.452); }
+  background-color: rgba(59, 59, 59, 0.452); }
 
 /* Configuraciones generales del filtro */
-.filterTour button {
-  font-size: 1.3rem;
-  font-family: 'Rubik', sans-serif;
-  background-color: #441f75;
-  color: white;
-  border: none; }
-  .filterTour button :hover {
-    color: white; }
+.filterTour {
+  background-color: #3f3b3e52; }
+  .filterTour button {
+    font-size: 1.3rem;
+    font-family: 'Rubik', sans-serif;
+    background-color: #330b4b;
+    color: white;
+    border: none; }
+    .filterTour button:hover {
+      color: white; }
 
+/* Correccion dropdown menu de Bootstrap */
 .dropdown-menu {
   padding: 0; }
 
@@ -485,8 +518,12 @@ textarea {
   border: 3px solid black;
   border-radius: 20px 20px 20px 20px;
   margin: 5px;
-  font-family: 'Oswald', sans-serif;
-  font-size: 2rem; }
+  font-family: 'Oswald', sans-serif; }
+
+/* Ajuste de imagenes del carrusel */
+.fitImage {
+  width: 500px;
+  height: 500px; }
 
 /* Altura y configuracion */
 .heightTour {
@@ -499,16 +536,17 @@ textarea {
   .tourFilterResponsive input {
     padding: 2px 10px;
     width: 120px;
-    font-size: 20px; }
+    font-size: 1.25rem; }
     .tourFilterResponsive input :disabled {
       background-color: white; }
   .tourFilterResponsive select {
+    text-align: center;
     width: 100px;
     font-size: 1.5rem;
-    border-radius: 3px 3px 3px 3px;
-    background-color: #0275d8;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #330b4b;
     color: white;
-    padding: 10px 2px; }
+    padding: 5px 2px; }
 
 /* --------------- SHOP.html --------------- */
 /* Division principal del shop */
@@ -517,11 +555,15 @@ textarea {
   grid-template-areas: "banner banner banner banner" "filter shop shop shop";
   grid-template-columns: 1fr 4fr; }
 
+/* Configuracion gral del main */
+.mainShop {
+  background-color: #282433; }
+
 /* Seccion de banner de oferta */
 .offerBanner {
   grid-area: banner;
   display: flex;
-  background-color: blue;
+  background-color: rgba(68, 116, 248, 0.63);
   align-items: center; }
   .offerBanner h2:hover {
     color: #01015f; }
@@ -531,12 +573,26 @@ textarea {
   width: 100%;
   padding: 20px;
   text-align: center; }
+  .offerBannerButton:hover {
+    color: #01015f; }
 
 /* Barra de filtro del shop */
 .filterShop {
   width: 100%;
   grid-area: filter;
-  background-color: wheat; }
+  position: relative;
+  background-color: #28003a;
+  /* Estilo de los items del filtro */ }
+  .filterShop li {
+    font-size: 1.5rem;
+    color: #cecece; }
+
+/* Caja contenedora del carrito de compras */
+.cartSection {
+  position: fixed;
+  width: 20%;
+  bottom: 0;
+  left: 0; }
 
 /* Seccion de imagenes del shop */
 .shop {
@@ -547,23 +603,55 @@ textarea {
 
 /* Imagenes del shop */
 .imgShopNormal {
-  width: 200px;
+  width: 250px;
   height: 250px;
   background-color: #c29f82;
   color: white;
   border: 2px solid #c28350;
-  margin: 20px; }
+  box-shadow: 0 4px 8px 0 rgba(175, 174, 174, 0.2), 0 6px 20px 0 rgba(208, 236, 49, 0.19);
+  margin: 20px;
+  position: relative; }
 
 /* Imagenes del shop, offer */
 .imgShopOffer {
-  width: 200px;
+  width: 250px;
   height: 250px;
   background-color: #ebd244;
   color: black;
   border: 2px solid gold;
-  margin: 20px; }
+  box-shadow: 0 4px 8px 0 rgba(175, 174, 174, 0.2), 0 6px 20px 0 rgba(208, 236, 49, 0.19);
+  margin: 20px;
+  position: relative; }
+
+/* Tamanio y acomodo de imagenes del shop */
+.imgFitShop {
+  width: 100%;
+  height: 100%; }
+
+/* Apartado del precio */
+.priceSection {
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(206, 110, 250, 0.315);
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .priceSection p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1.5rem;
+    text-align: center; }
+  .priceSection:hover {
+    animation: discover;
+    opacity: 100; }
 
 /* --------------- MUSIC.html --------------- */
+/* Main Music, contenedor principal */
+.mainMusic {
+  background-color: #0a060f; }
+
 /* Cajas de albums musicales */
 .containerAlbum {
   display: flex;
@@ -573,9 +661,41 @@ textarea {
 /* Cajas de albums musicales */
 .album {
   margin: 40px;
-  width: 200px;
-  height: 250px;
-  background-color: turquoise; }
+  width: 280px;
+  height: 280px;
+  background-color: turquoise;
+  position: relative;
+  border-radius: 5px 5px 5px 5px; }
+
+/* Imagen del album */
+.albumPhoto {
+  width: 280px;
+  height: 280px;
+  border-radius: 5px 5px 5px 5px; }
+
+/* Descripcion del album */
+.albumDescription {
+  opacity: 0%;
+  position: absolute;
+  bottom: 0;
+  width: 280px;
+  height: 100px;
+  margin-top: 160px;
+  border-radius: 0px 0px 5px 5px;
+  padding: 3px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .albumDescription p {
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: #d9c3db; }
+  .albumDescription:hover {
+    animation: discover;
+    background-color: rgba(0, 0, 0, 0.363);
+    animation-duration: 0.5s;
+    opacity: 100%; }
 
 /* Contenedor de video */
 .lastVideo {

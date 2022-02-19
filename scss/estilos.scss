@@ -22,6 +22,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
 
 /* CORRECCIONES GENERALES */
 
@@ -66,6 +67,9 @@ ul{
         font-size: 1.125rem;
         :hover{
             animation: headshake 1s;
+        }
+        a:hover{
+            color: white;
         }
     }
 
@@ -343,6 +347,7 @@ ul{
         background-color: rgb(36, 2, 56);
         display: flex;
         justify-content: space-evenly;
+        border-bottom: 1px solid black;
         list-style: none;
         height: 100px;
         align-items: center;
@@ -358,6 +363,9 @@ ul{
             width: 1.875rem;
             height: 1.875rem;
             margin: 3px 8px;
+            ::selection{
+                color: rgb(51, 11, 75);
+            }
         }
     }    
 
@@ -377,23 +385,25 @@ ul{
 
 /* Caja contenedora del main */ 
 .mainTour{
-    background-color: rgba(102, 102, 102, 0.452);
+    background-color: rgba(59, 59, 59, 0.452);
 }
 
 /* Configuraciones generales del filtro */
 .filterTour{
+    background-color: #3f3b3e52;
     button {
         font-size: 1.3rem;
         font-family: 'Rubik', sans-serif;
-        background-color: rgb(68, 31, 117);
+        background-color: rgb(51, 11, 75);
         color: white;
         border: none;
-        :hover{
+        &:hover{
             color: white;
         }
     }
 }
 
+/* Correccion dropdown menu de Bootstrap */
 .dropdown-menu{
     padding: 0;
 }
@@ -408,7 +418,12 @@ ul{
     border-radius: 20px 20px 20px 20px;
     margin: 5px;
     font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
+}
+
+/* Ajuste de imagenes del carrusel */ 
+.fitImage{
+    width: 500px;
+    height: 500px;
 }
 
 /* Altura y configuracion */
@@ -423,18 +438,19 @@ ul{
     input {
         padding: 2px 10px;
         width: 120px;
-        font-size: 20px;
+        font-size: 1.25rem;
         :disabled{
             background-color: white;
         }
     }
     select {
+        text-align: center;
         width: 100px;
         font-size: 1.5rem;
-        border-radius: 3px 3px 3px 3px;
-        background-color:#0275d8;
+        border-radius: 5px 5px 5px 5px;
+        background-color:rgb(51, 11, 75);
         color: white;
-        padding: 10px 2px;
+        padding: 5px 2px;
     }
 }
 
@@ -449,11 +465,16 @@ ul{
         grid-template-columns: 1fr 4fr;
     }
 
+    /* Configuracion gral del main */
+    .mainShop{
+        background-color: #282433;
+    }
+
         /* Seccion de banner de oferta */
        .offerBanner{
             grid-area: banner;
             display: flex;
-            background-color: blue;
+            background-color: rgba(68, 116, 248, 0.63);
             align-items: center;
             h2:hover{
                 color: rgb(1, 1, 95);
@@ -464,13 +485,30 @@ ul{
             width: 100%;
             padding: 20px;
             text-align: center;
+            &:hover{
+                color: rgb(1, 1, 95);
+            }
         }
     
         /* Barra de filtro del shop */
         .filterShop{
             width: 100%;
             grid-area: filter;
-            background-color: wheat;
+            position: relative;
+            background-color:#28003a;
+            /* Estilo de los items del filtro */
+            li{
+                font-size: 1.5rem;
+                color: rgb(206, 206, 206);
+            }
+        }
+
+        /* Caja contenedora del carrito de compras */
+        .cartSection{
+            position: fixed;
+            width: 20%; 
+            bottom: 0;
+            left: 0;
         }
 
         /* Seccion de imagenes del shop */
@@ -483,25 +521,61 @@ ul{
 
         /* Imagenes del shop */
         .imgShopNormal{
-            @include carta(200px, 250px);
+            @include carta(250px, 250px);
             background-color: map-get($map: $normalPrice, $key:bg-normal );
             color: map-get($map: $normalPrice, $key:color-normal );
             border: map-get($map: $normalPrice, $key:border-normal );
+            box-shadow: 0 4px 8px 0 rgba(175, 174, 174, 0.2), 0 6px 20px 0 rgba(208, 236, 49, 0.19);
             margin: 20px;
+            position: relative;
         }
-           /* Imagenes del shop, offer */ 
+        /* Imagenes del shop, offer */ 
         .imgShopOffer{
-            @include carta(200px, 250px);
+            @include carta(250px, 250px);
             background-color: map-get($map: $specialOffer, $key:bg-offer );
             color: map-get($map: $specialOffer, $key:color-offer );
             border: map-get($map: $specialOffer, $key:border-offer );
+            box-shadow: 0 4px 8px 0 rgba(175, 174, 174, 0.2), 0 6px 20px 0 rgba(208, 236, 49, 0.19);
             margin: 20px;
+            position: relative;
+        }
+
+        /* Tamanio y acomodo de imagenes del shop */
+        .imgFitShop{
+            @include carta(100%, 100%);
+        }
+
+        /* Apartado del precio */ 
+        .priceSection{
+            opacity: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(206, 110, 250, 0.315);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            p{
+                font-family: 'Work Sans', sans-serif;
+                font-size: 1.5rem;
+                text-align: center;
+            }
+            &:hover{
+                animation: discover;
+                opacity: 100;
+            }
 }
+
         
 
 /* --------------- MUSIC.html --------------- */
 
-    
+    /* Main Music, contenedor principal */ 
+    .mainMusic{
+        background-color: #0a060f;
+    }
+
     /* Cajas de albums musicales */
     .containerAlbum{
         display: flex;
@@ -512,8 +586,42 @@ ul{
     /* Cajas de albums musicales */
     .album{
         margin: 40px;
-        @include carta(200px, 250px);
+        @include carta(280px, 280px);
         background-color: turquoise;
+        position: relative;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    /* Imagen del album */ 
+    .albumPhoto{
+        @include carta(280px, 280px);
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    /* Descripcion del album */ 
+    .albumDescription{
+        opacity: 0%;
+        position: absolute;
+        bottom: 0;
+        @include carta(280px, 100px);
+        margin-top: 160px;
+        border-radius: 0px 0px 5px 5px;
+        padding: 3px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        p{
+            font-family: 'Oswald', sans-serif;
+            font-weight: bold;
+            text-align: center;
+            color: rgb(217, 195, 219);
+        }
+        &:hover{
+            animation: discover;
+            background-color: rgba(0, 0, 0, 0.363);
+            animation-duration: 0.5s;
+            opacity: 100%;
+        }
     }
 
     /* Contenedor de video */
