@@ -1,7 +1,7 @@
 {
   "name": "proyectoactual",
   "version": "1.0.0",
-  "description": "",
+  "description": "El disenio de esta pagina web, corresponde a el poryecto final del curso de desarrollo front end para Coderhouse. Realizado por Santiago Olivera e inspirado  en la banda de musica britanica Muse",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
