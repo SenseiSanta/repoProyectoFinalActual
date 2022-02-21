@@ -362,7 +362,7 @@ form {
   .contactForm label {
     display: inline-block;
     text-align: right;
-    width: 150px;
+    width: 200px;
     padding-right: 10px; }
 
 .labelInfo {
@@ -385,6 +385,7 @@ textarea {
 .labelButtons {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 20px;
   /* Configuracion de los botones resolutivos del formulario (send y reset) */ }
   .labelButtons input {
     width: 140px;
@@ -452,8 +453,8 @@ textarea {
 
 /* Contener imagenes */
 .fitImageContent {
-  width: 300px;
-  height: 300px; }
+  width: 100%;
+  height: 100%; }
 
 /* Configuracion del filtro de la galeria de imagenes */
 .filterGallery {
@@ -563,36 +564,96 @@ textarea {
 .offerBanner {
   grid-area: banner;
   display: flex;
-  background-color: rgba(68, 116, 248, 0.63);
-  align-items: center; }
+  background-color: #55125f75;
+  align-items: center;
+  border-bottom: 1px solid black; }
   .offerBanner h2:hover {
-    color: #01015f; }
+    color: #c56ad3a4; }
 
 /* Boton de banner de oferta */
 .offerBannerButton {
   width: 100%;
-  padding: 20px;
+  padding: 10px;
   text-align: center; }
   .offerBannerButton:hover {
-    color: #01015f; }
+    color: #c56ad3a4; }
 
 /* Barra de filtro del shop */
 .filterShop {
   width: 100%;
+  position: sticky;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
   grid-area: filter;
-  position: relative;
   background-color: #28003a;
-  /* Estilo de los items del filtro */ }
-  .filterShop li {
-    font-size: 1.5rem;
-    color: #cecece; }
+  /* Lista de items del filtro */ }
+  .filterShop ul {
+    list-style: none;
+    /* Estilo de los items del filtro */ }
+    .filterShop ul li {
+      margin: 30px 0px;
+      font-size: 1.2rem;
+      color: #cecece;
+      /* Checkbox esconder */
+      /* Items del filtro del shop */ }
+      .filterShop ul li input {
+        display: none;
+        /* Checkbox seleccionado */ }
+        .filterShop ul li input:checked + label {
+          background-color: #55125f75; }
+          .filterShop ul li input:checked + label:before {
+            background-color: black; }
+      .filterShop ul li label {
+        color: #c56ad3a4;
+        padding: 5px 15px 5px 51px;
+        display: block;
+        position: relative;
+        border-radius: 3px;
+        cursor: pointer;
+        /* Circulos nuevos para el checak */ }
+        .filterShop ul li label:hover {
+          background-color: #55125f; }
+        .filterShop ul li label:before {
+          content: '';
+          width: 17px;
+          height: 17px;
+          display: inline-block;
+          border: 3px solid black;
+          border-radius: 50%;
+          position: absolute;
+          left: 17px;
+          bottom: 10px; }
 
 /* Caja contenedora del carrito de compras */
 .cartSection {
-  position: fixed;
-  width: 20%;
-  bottom: 0;
-  left: 0; }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  /* Boton para ir al carrito */ }
+  .cartSection a {
+    background-color: #683370;
+    width: 80%;
+    font-size: 1rem;
+    padding: 1px 10px;
+    border-radius: 5px;
+    border: #0a060f 3px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px;
+    /* Contenido linkeado del boton */ }
+    .cartSection a:hover {
+      background-color: #55125f;
+      color: white; }
+    .cartSection a i {
+      padding-top: 8px; }
+    .cartSection a p {
+      margin-left: 10px; }
 
 /* Seccion de imagenes del shop */
 .shop {
@@ -642,10 +703,13 @@ textarea {
   .priceSection p {
     font-family: 'Work Sans', sans-serif;
     font-size: 1.5rem;
-    text-align: center; }
+    text-align: center;
+    margin: 0px 5px; }
   .priceSection:hover {
     animation: discover;
     opacity: 100; }
+  .priceSection span {
+    font-weight: bold; }
 
 /* --------------- MUSIC.html --------------- */
 /* Main Music, contenedor principal */
@@ -710,7 +774,7 @@ textarea {
     height: auto; }
 
 /*MediaQueris*/
-/* ======================= CORRECCION DEL HEADER BAJO 800px ======================= */
+/* ======================= CORRECCION BAJO 800px ======================= */
 @media only screen and (max-width: 800px) {
   /* Arreglo del tamano del logo principal */
   .logoPrincipal {
@@ -723,7 +787,27 @@ textarea {
     width: 2.8rem; }
   /* Desaparcicion de Carousel en Contact */
   .d-none-800 {
-    display: none; } }
+    display: none; }
+  /* --------------- SHOP.html (800px) --------------- */
+  /* Barra de filtro del shop */
+  .filterShop {
+    /*Ubicacion de los items del filtro */ }
+    .filterShop ul {
+      /* Estilo de los items del filtro */ }
+      .filterShop ul li {
+        font-size: 0.8rem;
+        /* Items del filtro del shop */ }
+        .filterShop ul li label {
+          /* Circulos nuevos para el checak */ }
+          .filterShop ul li label:before {
+            width: 14px;
+            height: 14px;
+            bottom: 7px; }
+  /* Caja contenedora del carrito de compras */
+  .cartSection {
+    /* Boton para ir al carrito */ }
+    .cartSection a {
+      font-size: 0.8rem; } }
 
 /* ========================= ARREGLO MONITORES ========================= */
 @media only screen and (max-width: 1400px) {
@@ -769,8 +853,9 @@ textarea {
   /* --------------- INDEX.html (720px)  --------------- */
   /* Texto principal del index */
   .mainText {
-    font-size: 2.1rem;
     bottom: 75px; }
+    .mainText h1 {
+      font-size: 3rem; }
   /* Division del contenido del index */
   /* Division principal */
   .biography {
@@ -783,10 +868,19 @@ textarea {
   /* --------------- CONTACT.html (720px) --------------- */
   /* Configuracion de los label dentro del formulario */
   .contactForm label {
-    width: 150px; }
+    width: 200px;
+    text-align: center;
+    font-size: 1.3em;
+    padding-bottom: 10px;
+    padding-right: 0; }
   /* Correccion del tamaño y formato de los select e input */
-  .labelInfo select, .labelInfo input {
-    width: 170px; }
+  .labelInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px; }
+    .labelInfo select, .labelInfo input {
+      width: 170px; }
   /* --------------- GALLERY.html (720px)  --------------- */
   /* Configuracion individual de las imagenes */
   .galleryImage {
@@ -801,7 +895,36 @@ textarea {
   .infoTour {
     width: 250px;
     height: 150px;
-    font-size: 2.5rem; } }
+    font-size: 2.5rem; }
+  /* --------------- SHOP.html (720px) --------------- */
+  /* Division principal del shop */
+  .orderShop {
+    display: grid;
+    grid-template-columns: none;
+    grid-template-areas: "banner" "filter" "shop"; }
+  /* Barra de filtro del shop */
+  .filterShop {
+    /*Ubicacion de los items del filtro */ }
+    .filterShop ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; }
+      .filterShop ul li {
+        margin: 10px;
+        font-size: 2rem;
+        /* Items del filtro del shop */ }
+        .filterShop ul li label {
+          /* Circulos nuevos para el checak */ }
+          .filterShop ul li label:before {
+            width: 14px;
+            height: 14px;
+            bottom: 15px; }
+  /* Caja contenedora del carrito de compras */
+  .cartSection {
+    flex-direction: row;
+    /* Boton para ir al carrito */ }
+    .cartSection a {
+      width: 130px; } }
 
 /* ========================= CELULARES ========================= */
 @media only screen and (max-width: 480px) {
@@ -851,17 +974,28 @@ textarea {
       height: 1.25rem;
       margin: 3px 5px; }
   /* --------------- SHOP.html (480px)  --------------- */
-  /* Division principal del shop */
-  .orderShop {
-    display: grid;
-    grid-template-columns: none;
-    grid-template-areas: "banner" "filter" "shop"; }
-  /* Espacio del filtro del shop */
-  .filterShop {
-    height: 100px; }
   /* Boton de oferta del shop */
   .offerBannerButton {
     font-size: 2em; }
+  /* Barra de filtro del shop */
+  .filterShop {
+    /*Ubicacion de los items del filtro */ }
+    .filterShop ul {
+      /* Estilo de los items del filtro */ }
+      .filterShop ul li {
+        font-size: 1rem;
+        /* Items del filtro del shop */ }
+        .filterShop ul li label {
+          /* Circulos nuevos para el checak */ }
+          .filterShop ul li label:before {
+            width: 14px;
+            height: 14px;
+            bottom: 7px; }
+  /* Caja contenedora del carrito de compras */
+  .cartSection {
+    /* Boton para ir al carrito */ }
+    .cartSection a {
+      font-size: 1rem; }
   /* --------------- MUSIC.html (480px)  --------------- */
   /* Configuracion de la caja del video en pantalla */
   .lastVideo {
@@ -873,8 +1007,8 @@ textarea {
       height: 300px; }
   /* Configuracion de las cartas de albums */
   .album {
-    width: 120px;
-    height: 180px;
+    /*width: 120px;
+                height: 180px;*/
     margin: 20px; }
   /* --------------- CONTACT.html (480px)  --------------- */
   .tourFilterResponsive {
