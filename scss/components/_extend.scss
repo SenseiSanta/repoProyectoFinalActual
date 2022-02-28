@@ -3,3 +3,9 @@
     height: 100%;
 }
 
+%shopCards {
+    box-shadow: 0 4px 8px 0 rgba(175, 174, 174, 0.2), 0 6px 20px 0 rgba(208, 236, 49, 0.19);
+    margin: 20px;
+    position: relative;
+    cursor: pointer;
+}

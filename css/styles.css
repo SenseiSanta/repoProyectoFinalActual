@@ -5,6 +5,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Gothic&display=swap");
 footer {
   font-weight: bold;
   grid-area: footer;
@@ -15,6 +19,10 @@ footer {
 .footerImgWebsites:hover {
   border: 1px solid #4C0070;
   background-color: #d785e4; }
+
+/* Texto Principal de footer */
+.footerText {
+  font-family: 'Rajdhani', sans-serif; }
 
 /* KEYFRAMES */
 /* Headshake */
@@ -107,7 +115,7 @@ header {
     header nav ul li {
       color: white;
       list-style: none;
-      font-size: 1.875rem;
+      font-size: 1.5rem;
       font-family: 'Fredoka One', cursive;
       transition-duration: 0.5s;
       /* Boton de ingreso al menu responsive */ }
@@ -123,7 +131,7 @@ header {
 
 /* Configuracion del logo principal */
 .logoPrincipal {
-  width: 12rem;
+  width: 11rem;
   margin-top: 5px; }
 
 /* CONFIGURACION DE HEADER: responsive (Cuando el width baje de 800px se vera lo siguiente) */
@@ -134,7 +142,7 @@ header {
 
 /* Tamano de los iconos del header en responsive */
 .iconHeader {
-  width: 50px; }
+  width: 3rem; }
 
 /* Menu de responsive */
 .menuResponsive {
@@ -150,7 +158,7 @@ header {
   /* Items en lista del menu responsive */ }
   .menuResponsive li {
     padding: 20px 0px;
-    font-size: 2rem; }
+    font-size: 1.8rem; }
 
 /*MediaQueris*/
 /* ======================= CORRECCION DEL HEADER BAJO 800px ======================= */
@@ -173,12 +181,42 @@ header {
     transform: none; }
     header nav ul li:hover a:hover {
       color: white;
-      text-decoration: none; } }
+      text-decoration: none; }
+  /* Logo MUSE */
+  .logoPrincipal {
+    width: 9rem; }
+  /* Iconos responsive del header */
+  .iconHeader {
+    width: 2rem; } }
+
+@media only screen and (max-width: 720px) {
+  /* Iconos de navegacion en responsive */
+  .iconHeader {
+    width: 2.4rem; }
+  /* Logo MUSE */
+  .logoPrincipal {
+    width: 10rem; } }
+
+@media only screen and (max-width: 480px) {
+  header {
+    padding: 0px 5px 5px 5px; }
+  /* Logo MUSE */
+  .logoPrincipal {
+    width: 9rem; }
+  /* Iconos de navegacion en responsive */
+  .iconHeader {
+    width: 2rem; } }
 
 /* Cartas del shop */
 .mainText {
   width: 100%;
   height: 100%; }
+
+.imgShopNormal, .imgShopOffer {
+  box-shadow: 0 4px 8px 0 rgba(175, 174, 174, 0.2), 0 6px 20px 0 rgba(208, 236, 49, 0.19);
+  margin: 20px;
+  position: relative;
+  cursor: pointer; }
 
 /* RESET Y CONFIG GRAL. */
 * {
@@ -438,13 +476,13 @@ textarea {
   width: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; }
+  justify-content: space-around;
+  background-color: #0c001a; }
 
 /* Configuracion individual de las imagenes */
 .galleryImage {
   width: 300px;
   height: 300px;
-  background-color: rgba(40, 27, 116, 0.74);
   margin: 25px;
   transition: 1s; }
   .galleryImage :hover {
@@ -454,36 +492,66 @@ textarea {
 /* Contener imagenes */
 .fitImageContent {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px; }
 
 /* Configuracion del filtro de la galeria de imagenes */
 .filterGallery {
-  background-color: #240238;
+  background-color: #0c001a;
   display: flex;
-  justify-content: space-evenly;
-  border-bottom: 1px solid black;
+  justify-content: center;
   list-style: none;
   height: 100px;
   align-items: center;
-  /* Configuracion de los elementos del filtro de la galeria */
-  /* Configuracion de los input (circulos seleccionadores) en el filtro de la galeria */ }
+  /* Configuracion de los elementos del filtro de la galeria */ }
   .filterGallery li {
-    color: white;
-    font-size: 1.5em;
+    color: #c5c5c5;
+    font-size: 1.7em;
     align-items: center;
-    display: flex; }
-  .filterGallery input {
-    width: 1.875rem;
-    height: 1.875rem;
-    margin: 3px 8px; }
-    .filterGallery input ::selection {
-      color: #330b4b; }
+    display: flex;
+    font-family: 'League Gothic', sans-serif;
+    /* Checkbox esconder */
+    /* Items del filtro de Gallery */ }
+    .filterGallery li input {
+      display: none;
+      /* Checkbox seleccionado */ }
+      .filterGallery li input:checked + label {
+        background-color: #55125f75; }
+        .filterGallery li input:checked + label:before {
+          background-color: white; }
+    .filterGallery li label {
+      padding: 5px 15px 5px 51px;
+      width: 140px;
+      margin: 0px 10px;
+      text-align: center;
+      display: block;
+      position: relative;
+      border-radius: 3px;
+      cursor: pointer;
+      /* Circulos nuevos para el check */ }
+      .filterGallery li label:hover {
+        background-color: #1a151d; }
+      .filterGallery li label:before {
+        content: '';
+        width: 17px;
+        height: 17px;
+        display: inline-block;
+        border: 3px solid #55125f;
+        border-radius: 50%;
+        position: absolute;
+        left: 17px;
+        bottom: 15px; }
+
+/* Secciones de Filtro bajo 480px */
+.gallery480section {
+  display: flex;
+  justify-content: space-between; }
 
 /* Configuracion de los botones en la galeria responsive */
 .responsiveGallery {
   display: none;
   background: black;
-  background: linear-gradient(180deg, black 0%, #3e065f 100%);
   justify-content: space-evenly;
   list-style: none;
   height: 70px;
@@ -558,7 +626,7 @@ textarea {
 
 /* Configuracion gral del main */
 .mainShop {
-  background-color: #282433; }
+  background-color: #0f0a22; }
 
 /* Seccion de banner de oferta */
 .offerBanner {
@@ -574,7 +642,9 @@ textarea {
 .offerBannerButton {
   width: 100%;
   padding: 10px;
-  text-align: center; }
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  color: #d3d1d1; }
   .offerBannerButton:hover {
     color: #c56ad3a4; }
 
@@ -637,8 +707,11 @@ textarea {
   /* Boton para ir al carrito */ }
   .cartSection a {
     background-color: #683370;
+    font-family: 'Comfortaa', cursive;
     width: 80%;
-    font-size: 1rem;
+    max-width: 200px;
+    height: 40px;
+    font-size: 0.9rem;
     padding: 1px 10px;
     border-radius: 5px;
     border: #0a060f 3px solid;
@@ -651,9 +724,7 @@ textarea {
       background-color: #55125f;
       color: white; }
     .cartSection a i {
-      padding-top: 8px; }
-    .cartSection a p {
-      margin-left: 10px; }
+      margin-right: 5px; }
 
 /* Seccion de imagenes del shop */
 .shop {
@@ -668,21 +739,15 @@ textarea {
   height: 250px;
   background-color: #c29f82;
   color: white;
-  border: 2px solid #c28350;
-  box-shadow: 0 4px 8px 0 rgba(175, 174, 174, 0.2), 0 6px 20px 0 rgba(208, 236, 49, 0.19);
-  margin: 20px;
-  position: relative; }
+  border: 2px solid #c28350; }
 
-/* Imagenes del shop, offer */
+/* Imagenes del shop, en oferta */
 .imgShopOffer {
   width: 250px;
   height: 250px;
   background-color: #ebd244;
   color: black;
-  border: 2px solid gold;
-  box-shadow: 0 4px 8px 0 rgba(175, 174, 174, 0.2), 0 6px 20px 0 rgba(208, 236, 49, 0.19);
-  margin: 20px;
-  position: relative; }
+  border: 2px solid gold; }
 
 /* Tamanio y acomodo de imagenes del shop */
 .imgFitShop {
@@ -727,7 +792,6 @@ textarea {
   margin: 40px;
   width: 280px;
   height: 280px;
-  background-color: turquoise;
   position: relative;
   border-radius: 5px 5px 5px 5px; }
 
@@ -744,7 +808,6 @@ textarea {
   bottom: 0;
   width: 280px;
   height: 100px;
-  margin-top: 160px;
   border-radius: 0px 0px 5px 5px;
   padding: 3px 10px;
   display: flex;
@@ -776,15 +839,9 @@ textarea {
 /*MediaQueris*/
 /* ======================= CORRECCION BAJO 800px ======================= */
 @media only screen and (max-width: 800px) {
-  /* Arreglo del tamano del logo principal */
-  .logoPrincipal {
-    width: 12rem; }
   /* Desaparecer el boton de contacto */
   .contactButtonBox {
     display: none; }
-  /* Tamano de los iconos responsive del header */
-  .iconHeader {
-    width: 2.8rem; }
   /* Desaparcicion de Carousel en Contact */
   .d-none-800 {
     display: none; }
@@ -795,9 +852,10 @@ textarea {
     .filterShop ul {
       /* Estilo de los items del filtro */ }
       .filterShop ul li {
-        font-size: 0.8rem;
+        font-size: 1rem;
         /* Items del filtro del shop */ }
         .filterShop ul li label {
+          padding: 5px 15px 5px 40px;
           /* Circulos nuevos para el checak */ }
           .filterShop ul li label:before {
             width: 14px;
@@ -847,9 +905,6 @@ textarea {
 @media only screen and (max-width: 720px) {
   html {
     font-size: 12px; }
-  /* Iconos de navegacion en responsive */
-  .iconHeader {
-    width: 2.7rem; }
   /* --------------- INDEX.html (720px)  --------------- */
   /* Texto principal del index */
   .mainText {
@@ -886,10 +941,24 @@ textarea {
   .galleryImage {
     width: 250px;
     height: 250px; }
+  .filterGallery li {
+    /* Items del filtro de Gallery */ }
+    .filterGallery li label {
+      padding: 5px 10px 5px 35px;
+      width: 110px;
+      margin: 0px 5px; }
+      .filterGallery li label:before {
+        bottom: 12px; }
   /* --------------- MUSIC.html (720px) --------------- */
   /* Contenedor de video */
   .lastVideo {
     height: 400px; }
+  /* Descripcion del album */
+  .albumDescription {
+    opacity: 100%;
+    background-color: rgba(0, 0, 0, 0.363); }
+    .albumDescription:hover {
+      animation: none; }
   /* --------------- TOUR.html (720px) --------------- */
   /* Cajas de Info en Tour */
   .infoTour {
@@ -914,6 +983,7 @@ textarea {
         font-size: 2rem;
         /* Items del filtro del shop */ }
         .filterShop ul li label {
+          padding: 5px 15px 5px 40px;
           /* Circulos nuevos para el checak */ }
           .filterShop ul li label:before {
             width: 14px;
@@ -924,7 +994,28 @@ textarea {
     flex-direction: row;
     /* Boton para ir al carrito */ }
     .cartSection a {
-      width: 130px; } }
+      width: 140px;
+      font-size: 1.2rem;
+      margin: 0px 5px 10px 5px; }
+  /* Imagenes del shop */
+  .imgShopNormal {
+    width: 200px;
+    height: auto;
+    position: static; }
+  /* Imagenes del shop, en oferta */
+  .imgShopOffer {
+    width: 200px;
+    height: auto;
+    position: static; }
+  /* Tamanio ajustado de imagenes */
+  .imgFitShop {
+    width: 100%;
+    height: 200px; }
+  /* Seccion de precios */
+  .priceSection {
+    position: static;
+    opacity: 100%;
+    height: 110px; } }
 
 /* ========================= CELULARES ========================= */
 @media only screen and (max-width: 480px) {
@@ -932,15 +1023,6 @@ textarea {
     font-size: 10px; }
   .d-none-480 {
     display: none; }
-  /* CONFIGURACION DEL HEADER (480px) */
-  header {
-    padding: 10px; }
-  /* Logo MUSE */
-  .logoPrincipal {
-    width: 12rem; }
-  /* Iconos de navegacion en responsive */
-  .iconHeader {
-    width: 2.8rem; }
   /* --------------- INDEX.html (480px)  --------------- */
   /* Texto principal del index */
   .mainText {
@@ -964,15 +1046,13 @@ textarea {
     margin: 25px; }
   /* Aparicion del filtro responsive */
   .responsiveGallery {
-    display: flex; }
-  /* Desaparicion del filtro no responsive */
+    display: none; }
   .filterGallery {
-    display: none;
-    /* Configuracion de los input (circulos seleccionadores) en el filtro de la galeria */ }
-    .filterGallery input {
-      width: 1.25rem;
-      height: 1.25rem;
-      margin: 3px 5px; }
+    flex-direction: column; }
+    .filterGallery label {
+      width: 140px; }
+  .gallery480section {
+    margin: 5px 5px; }
   /* --------------- SHOP.html (480px)  --------------- */
   /* Boton de oferta del shop */
   .offerBannerButton {
@@ -983,7 +1063,7 @@ textarea {
     .filterShop ul {
       /* Estilo de los items del filtro */ }
       .filterShop ul li {
-        font-size: 1rem;
+        font-size: 1.7rem;
         /* Items del filtro del shop */ }
         .filterShop ul li label {
           /* Circulos nuevos para el checak */ }
@@ -995,7 +1075,8 @@ textarea {
   .cartSection {
     /* Boton para ir al carrito */ }
     .cartSection a {
-      font-size: 1rem; }
+      font-size: 1rem;
+      width: 120px; }
   /* --------------- MUSIC.html (480px)  --------------- */
   /* Configuracion de la caja del video en pantalla */
   .lastVideo {

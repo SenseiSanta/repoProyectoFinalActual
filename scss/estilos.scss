@@ -23,6 +23,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
 
 /* CORRECCIONES GENERALES */
 
@@ -323,13 +327,13 @@ ul{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+        background-color: $gallery-color;
     }
 
     /* Configuracion individual de las imagenes */
     .galleryImage{
         width: 300px;
         height: 300px;
-        background-color: rgba(40, 27, 116, 0.74);
         margin: 25px;
         transition: 1s;
         :hover{
@@ -340,41 +344,76 @@ ul{
 
     /* Contener imagenes */
     .fitImageContent{
-        @include carta(100%, 100%)
+        @include carta(100%, 100%);
+        object-fit: cover;
+        border-radius: 8px;
     }
 
     /* Configuracion del filtro de la galeria de imagenes */
     .filterGallery{
-        background-color: rgb(36, 2, 56);
+        background-color: $gallery-color;
         display: flex;
-        justify-content: space-evenly;
-        border-bottom: 1px solid black;
+        justify-content: center;
         list-style: none;
         height: 100px;
         align-items: center;
         /* Configuracion de los elementos del filtro de la galeria */
         li{
-            color: white;
-            font-size: 1.5em;
+            color: rgb(197, 197, 197);
+            font-size: 1.7em;
             align-items: center;
             display: flex;
-        }
-        /* Configuracion de los input (circulos seleccionadores) en el filtro de la galeria */
-        input{
-            width: 1.875rem;
-            height: 1.875rem;
-            margin: 3px 8px;
-            ::selection{
-                color: rgb(51, 11, 75);
+            font-family: 'League Gothic', sans-serif;
+            /* Checkbox esconder */
+            input {
+                display: none;
+                /* Checkbox seleccionado */
+                &:checked + label{
+                    background-color: #55125f75;
+                    &:before{
+                        background-color: white;
+                    }
+                }
+            }
+            /* Items del filtro de Gallery */
+            label{
+                padding: 5px 15px 5px 51px;
+                width: 140px;
+                margin: 0px 10px;
+                text-align: center;
+                display: block;
+                position: relative;
+                border-radius: 3px;
+                cursor: pointer;
+                &:hover{
+                    background-color: $color-header-footer;
+                }
+                /* Circulos nuevos para el check */
+                &:before{
+                    content: '';
+                    width: 17px;
+                    height: 17px;
+                    display: inline-block;
+                    border: 3px solid #55125f;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: 17px;
+                    bottom: 15px;
+                }
             }
         }
     }    
+
+    /* Secciones de Filtro bajo 480px */
+    .gallery480section{
+        display: flex;
+        justify-content: space-between;
+    }
 
     /* Configuracion de los botones en la galeria responsive */
     .responsiveGallery{
         display: none;
         background: rgb(0,0,0);
-        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(62,6,95,1) 100%);
         justify-content: space-evenly;
         list-style: none;
         height: 70px;
@@ -457,7 +496,6 @@ ul{
 
 /* --------------- SHOP.html --------------- */
 
-
     /* Division principal del shop */
     .orderShop{
         display: grid;
@@ -468,7 +506,7 @@ ul{
 
     /* Configuracion gral del main */
     .mainShop{
-        background-color: #282433;
+        background-color: #0f0a22;
     }
 
         /* Seccion de banner de oferta */
@@ -487,6 +525,8 @@ ul{
             width: 100%;
             padding: 10px;
             text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            color: rgb(211, 209, 209);
             &:hover{
                 color: #c56ad3a4;
             }
@@ -560,8 +600,11 @@ ul{
                 /* Boton para ir al carrito */
                 a{
                     background-color: #683370;
+                    font-family: 'Comfortaa', cursive;
                     width: 80%;
-                    font-size: 1rem;
+                    max-width: 200px;
+                    height: 40px;
+                    font-size: 0.9rem;
                     padding: 1px 10px;
                     border-radius: 5px;
                     border: #0a060f 3px solid;
@@ -575,10 +618,7 @@ ul{
                     }
                     /* Contenido linkeado del boton */
                     i{
-                        padding-top: 8px;
-                    }
-                    p{
-                        margin-left: 10px;
+                        margin-right: 5px;
                     }
                 }
             }
@@ -597,19 +637,15 @@ ul{
             background-color: map-get($map: $normalPrice, $key:bg-normal );
             color: map-get($map: $normalPrice, $key:color-normal );
             border: map-get($map: $normalPrice, $key:border-normal );
-            box-shadow: 0 4px 8px 0 rgba(175, 174, 174, 0.2), 0 6px 20px 0 rgba(208, 236, 49, 0.19);
-            margin: 20px;
-            position: relative;
+            @extend %shopCards;
         }
-        /* Imagenes del shop, offer */ 
+        /* Imagenes del shop, en oferta */ 
         .imgShopOffer{
             @include carta(250px, 250px);
             background-color: map-get($map: $specialOffer, $key:bg-offer );
             color: map-get($map: $specialOffer, $key:color-offer );
             border: map-get($map: $specialOffer, $key:border-offer );
-            box-shadow: 0 4px 8px 0 rgba(175, 174, 174, 0.2), 0 6px 20px 0 rgba(208, 236, 49, 0.19);
-            margin: 20px;
-            position: relative;
+            @extend %shopCards;
         }
 
         /* Tamanio y acomodo de imagenes del shop */
@@ -662,7 +698,6 @@ ul{
     .album{
         margin: 40px;
         @include carta(280px, 280px);
-        background-color: turquoise;
         position: relative;
         border-radius: 5px 5px 5px 5px;
     }
@@ -679,7 +714,6 @@ ul{
         position: absolute;
         bottom: 0;
         @include carta(280px, 100px);
-        margin-top: 160px;
         border-radius: 0px 0px 5px 5px;
         padding: 3px 10px;
         display: flex;
@@ -724,19 +758,10 @@ ul{
 /* ======================= CORRECCION BAJO 800px ======================= */
 
     @media only screen and (max-width: 800px){
-        /* Arreglo del tamano del logo principal */
-        .logoPrincipal{
-            width: 12rem;
-        }
 
         /* Desaparecer el boton de contacto */
         .contactButtonBox{
             display: none;
-        }
-
-        /* Tamano de los iconos responsive del header */
-        .iconHeader{
-            width: 2.8rem;
         }
 
         /* Desaparcicion de Carousel en Contact */
@@ -753,9 +778,10 @@ ul{
             ul{
                 /* Estilo de los items del filtro */
                 li{
-                    font-size: 0.8rem;
+                    font-size: 1rem;
                     /* Items del filtro del shop */
                     label{
+                        padding: 5px 15px 5px 40px;
                         /* Circulos nuevos para el checak */
                         &:before{
                             width: 14px;
@@ -774,7 +800,6 @@ ul{
                     font-size: 0.8rem;
                 }
             }
-        
 }
 
 /* ========================= ARREGLO MONITORES ========================= */
@@ -839,11 +864,6 @@ ul{
             font-size: 12px;
         }
 
-        /* Iconos de navegacion en responsive */
-        .iconHeader{
-            width: 2.7rem;
-        }
-
         /* --------------- INDEX.html (720px)  --------------- */
 
 
@@ -901,7 +921,22 @@ ul{
             .galleryImage{
                 width: 250px;
                 height: 250px;
-        }
+            }
+
+            .filterGallery{
+                li{
+                    /* Items del filtro de Gallery */
+                    label{
+                        padding: 5px 10px 5px 35px;
+                        width: 110px;
+                        margin: 0px 5px;
+                        &:before{
+                            bottom: 12px;
+                        }
+                    }
+                }
+            }
+
 
 
         /* --------------- MUSIC.html (720px) --------------- */
@@ -910,6 +945,15 @@ ul{
             /* Contenedor de video */
             .lastVideo{
                 height: 400px;
+            }
+
+            /* Descripcion del album */ 
+            .albumDescription{
+                opacity: 100%;
+                background-color: rgba(0, 0, 0, 0.363);
+                &:hover{
+                    animation: none;
+                }
             }
 
 
@@ -944,6 +988,7 @@ ul{
                     font-size: 2rem;
                         /* Items del filtro del shop */
                         label{
+                            padding: 5px 15px 5px 40px;
                             /* Circulos nuevos para el checak */
                             &:before{
                                 width: 14px;
@@ -960,10 +1005,36 @@ ul{
             flex-direction: row;
             /* Boton para ir al carrito */
             a{
-                width: 130px;
+                width: 140px;
+                font-size: 1.2rem;
+                margin: 0px 5px 10px 5px;
             }
         }
-}
+
+        /* Imagenes del shop */
+        .imgShopNormal{
+            @include carta(200px, auto);
+            position: static;
+        }
+
+        /* Imagenes del shop, en oferta */ 
+        .imgShopOffer{
+            @include carta(200px, auto);
+            position: static;
+        }
+
+        /* Tamanio ajustado de imagenes */
+        .imgFitShop{
+            @include carta(100%, 200px)
+        }
+
+        /* Seccion de precios */
+        .priceSection{
+            position: static;
+            opacity: 100%;
+            height: 110px;
+        }
+    }
 
 /* ========================= CELULARES ========================= */
 
@@ -976,23 +1047,6 @@ ul{
         .d-none-480{
             display: none;
         }
-
-        /* CONFIGURACION DEL HEADER (480px) */
-
-            header{
-                padding: 10px;
-            }
-
-            /* Logo MUSE */
-            .logoPrincipal{
-                width: 12rem;
-            }
-            
-            /* Iconos de navegacion en responsive */
-            .iconHeader{
-                width: 2.8rem;
-        }
-
 
         /* --------------- INDEX.html (480px)  --------------- */
 
@@ -1033,20 +1087,19 @@ ul{
             
             /* Aparicion del filtro responsive */
             .responsiveGallery{
-                display: flex;
+                display: none;
             }
 
-            /* Desaparicion del filtro no responsive */
             .filterGallery{
-                display: none;
-                /* Configuracion de los input (circulos seleccionadores) en el filtro de la galeria */
-                input{
-                    width: 1.25rem;
-                    height: 1.25rem;
-                    margin: 3px 5px;
+                flex-direction: column;
+                label{
+                    width: 140px;
                 }
             }
 
+            .gallery480section{
+                margin: 5px 5px;
+            }
         
         /* --------------- SHOP.html (480px)  --------------- */
 
@@ -1060,7 +1113,7 @@ ul{
                 ul{
                     /* Estilo de los items del filtro */
                     li{
-                        font-size: 1rem;
+                        font-size: 1.7rem;
                         /* Items del filtro del shop */
                         label{
                             /* Circulos nuevos para el checak */
@@ -1079,6 +1132,7 @@ ul{
                     /* Boton para ir al carrito */
                     a{
                         font-size: 1rem;
+                        width: 120px;
                     }
                 }
 

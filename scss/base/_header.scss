@@ -18,7 +18,7 @@ header{
         li{
             color: white;
             list-style: none;
-            font-size: 1.875rem;
+            font-size: 1.5rem;
             font-family: 'Fredoka One', cursive;
             transition-duration: 0.5s;
             :hover{
@@ -39,7 +39,7 @@ header{
 }
 /* Configuracion del logo principal */
 .logoPrincipal{
-    width: 12rem;
+    width: 11rem;
     margin-top: 5px;
 }
 
@@ -53,7 +53,7 @@ header{
 
     /* Tamano de los iconos del header en responsive */
     .iconHeader{
-        width: 50px;
+        width: 3rem;
     }
 
     /* Menu de responsive */
@@ -70,7 +70,7 @@ header{
         /* Items en lista del menu responsive */
         li{
             padding: 20px 0px;
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
 }
 
@@ -108,5 +108,44 @@ header{
             text-decoration: none
         }
     }
+
+    /* Logo MUSE */
+    .logoPrincipal{
+        width: 9rem;
+    }
+
+    /* Iconos responsive del header */
+    .iconHeader{
+        width: 2rem;
+    }
 }
+
+@media only screen and (max-width: 720px){
+            
+    /* Iconos de navegacion en responsive */
+    .iconHeader{
+        width: 2.4rem;
+    }
+        
+    /* Logo MUSE */
+    .logoPrincipal{
+        width: 10rem;
+    }
+}
+
+@media only screen and (max-width: 480px){
+
+    header{
+        padding: 0px 5px 5px 5px;
+    }
+
+    /* Logo MUSE */
+    .logoPrincipal{
+        width: 9rem;
+    }
     
+    /* Iconos de navegacion en responsive */
+    .iconHeader{
+        width: 2rem;
+    }
+}
