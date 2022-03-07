@@ -19,6 +19,8 @@ footer {
 .footerImgWebsites:hover {
   border: 1px solid #4C0070;
   background-color: #d785e4; }
+  .footerImgWebsites:hover i:hover {
+    color: black; }
 
 /* Texto Principal de footer */
 .footerText {
